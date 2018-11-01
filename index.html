@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Four Dams Project on the Lancang River</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Dam-induced displacement" />
+    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" />
+    <meta property="og:description" content="About dam-induced displacement in Southwest China ." />
+
+
+    <!--stlyesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin=""/>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" rel='stylesheet' />
+    <link rel="stylesheet" href="https://turban.github.io/Leaflet.Photo/examples/lib/cluster/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://turban.github.io/Leaflet.Photo/Leaflet.Photo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/project_style.css">
+    <link rel="stylesheet" href="css/control-minimap.css" />
+    <link rel="stylesheet" href="css/ekko-lightbox.css"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+
+
+
+    <!--add favicon-->
+	<link rel="shortcut icon" href="img/water.png" type="image/x-icon">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- Script -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+            integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+            crossorigin=""></script>
+
+    <!-- Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/leaflet.ajax.min.js"></script>
+    <script src="js/storymap.js"></script>
+	<script src="js/ekko-lightbox.js"></script>
+	<script src="js/control-minimap.js" type="text/javascript"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
+    <script src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
+
+    <script src="js/colorbrewer.js"></script>
+    <!-- mini globle map -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="js/globeminimap.js"></script>
+    <script src="js/storymap.js"></script>
+
+    <script src="js/jqcloud.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/post-contents.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-bottom navbar-toggleable-md" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" style="left:10px; position: fixed;">
+            <a class="navbar-brand" href="https://github.com/winkyt">Home</a>
+            <a class="navbar-brand" href="#">Four Dams on the Lancang River</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" style="padding-left: 0.5%">
+            <ul class="nav navbar-nav navbar-right">
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Info]').offset().top - $(window).scrollTop() - 10);">Introduction</a>
+                </li>
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Model]').offset().top - $(window).scrollTop() - 10);">Cernea's Model</a>
+                </li>
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Lancang]').offset().top - $(window).scrollTop() - 10);">Lancang River</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dam Sites <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Manwan]').offset().top - $(window).scrollTop() - 10);" style="color: black">Manwan Dam</a>
+                </li>
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Dachaoshan]').offset().top - $(window).scrollTop() - 10);" style="color: black">Dachaoshan Dam</a>
+                </li>
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Xiaowan]').offset().top - $(window).scrollTop() - 10);" style="color: black;">Xiaowan Dam</a>
+                </li>
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Nuozhadu]').offset().top - $(window).scrollTop() - 10);" style="color:black;">Nuozhadu Dam</a>
+                </li>
+                </ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Data]').offset().top - $(window).scrollTop() - 10);" style="color: black">Survey</a>
+                </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Result]').offset().top - $(window).scrollTop() - 10);" style="color: black">Result</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Discussion <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Time]').offset().top - $(window).scrollTop() - 10);" style="color: black">Time of adaptation </a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Compensation]').offset().top - $(window).scrollTop() - 10);" style="color: black">Compensation</a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Labor]').offset().top - $(window).scrollTop() - 10);" style="color: black;">Income, labor and resources</a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Age]').offset().top - $(window).scrollTop() - 10);" style="color:black;">Demographics</a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Limitations]').offset().top - $(window).scrollTop() - 10);" style="color:black;">Limitations</a>
+                        </li>
+                    </ul>
+                <li style="font-size: 14px">
+            		<a  data-toggle="modal" data-target="#info-modal">About</a>
+                </li>
+                <li style="font-size: 14px">
+                 <div class="dropdown">
+  					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    					Share
+  					</button>
+  					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    					<a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" style="color: #0f0d00">Facebook</a><br/>
+   						<a class="dropdown-item" target="_blank" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" style="color: #0f0d00">Twitter</a><br/>
+    					<a class="dropdown-item" target="_blank" href="https://github.com/winkyt" style="color: #0f0d00">Github</a>
+  					</div>
+				</div>
+				</li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+     <!-- /.container -->
+</div>
+
+<div class="container-fluid">
+    <div class="row" style="margin-left: -5px">
+        <div class="col-sm-6 col-md-4 main">
+        
+            <section data-scene="overview">
+				 	<div class= "overview-background-img background-fullscreen-setting">
+                        <div class="fullpage-text">
+                        <h4 class="text-center" style="color:white;font-size:400%;padding-left: 2%; padding-right:3%">From social disarticulation to community reconstruction</h4>
+						<br>
+						<h4 class ="text-center" style="font-size:20px; margin-top:0; color: white; text-shadow: gray 0.0em 0.0em 0.0em; margin-left: 25%; margin-right:25%; text-align:justify;">
+                            Between Tibet and Yunnan’s deep gorges, the large elevation gradient provides prime conditions for hydropower projects.
+                            A couple hydroelectric projects are built on the upper Mekong River, also called the Lancang River.
+                            This site tells you about four dams on the Lancang River, including Manwan, Dachaoshan, Nuozhadu, and Xiaowan,
+                            and their community reconsturction in the resettled villages.
+						</h4>
+                	<br/><br/><br/><br/>
+                	<p class ="text-center" style="font-size:18px; margin-top:0px; color: white; text-shadow: black 0em 0em 0em; margin-left: 30%; margin-right:30%; display:block;">Created by Yingqi Tang, Geography M.S Candidate, Oregon State University</p>
+                        </div>
+                    </div>
+                	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>                 
+            </section>
+
+            <section data-scene="Info">
+                <div class= "text-background-img background-fullscreen-setting">
+                    <div class="fullpage-text">
+
+                        <h4 class="text-center" style="font-size: 40px; color:white; margin-left:-15px;margin-top: 40px">Introduction</h4>
+                    <h4 class="text-left" style="font-size:150%; color:white; margin-left:150px;margin-right: 150px; margin-top:10px;margin-bottom: 10px">
+                            Every year, millions of people in the world move away from their home due to war, national infrastructure development, climate change or etc.
+                            Worldwide, nearly 50,000 large dams have been built by the end of 20th century (Nguyen, Pham, and Lobry de Bruyn, 2017).
+                            Currently, almost half of the world's large dams are built in China (Wilmsen, 2011).
+                            The Chinese government has constructed multiple large hydropower dams in southwest China and planned more.
+                            Driven by economic reform in 1980, population growth, and high electricity demand, the Chinese government proposed the "West-East electricity transmission project"(Ioanides and Tilt, 2015).
+                            Yunnan was one of the selected areas for hydropower developmemt because of its rich water resources </h4>
+                    <h4 class="text-left" style="font-size:150%; color:white; margin-left:150px;margin-right: 150px; margin-top:10px;margin-bottom: 10px">
+                        The hydropower dams fulfilled the high demand for electricity in southeastern China.
+                        However, they also created some environmental, cultural and social problems.
+                        One of these problems was development-forced displacement and resettlement (DFDR).
+                        The affected groups of people are generally from low socioeconomic backgrounds (Aiken and Leigh, 2015).
+                        Resettlement may cause social problems, due to the involuntarily resettlement and the uprooting of villagers' social relationships, disrupting their familial and commercial networks.
+                        Evidence shows that the effect of resettlement could affect generations of displaced villagers (Tilt and Gerkey, 2016).
+                        Involuntary displacement has become a stressor for many resettled individuals (Xi and Hwang, 2011).
+                    </h4>
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </section>
+
+            <section data-scene="Model">
+                <div class= "text-background-img background-fullscreen-setting">
+                    <div>
+                    <h4 class="text-center" style="font-size: 30px; color:white; margin-left:-15px;margin-top: 40px">Impoverishment Risk and Reconstruction Model</h4>
+
+                        <img src="img/risk_model.png" alt="Michael Cernea's Risk and Reconstruction Model" width="35%" height="25%" style="display:block; margin-left: 30%">
+                        <p class="text-center" style="font-size: 10px; color:white; margin-left:50%;font-weight: bold">Michael Cernea,1997</p>
+
+                    <br>
+                    <h6 class="text-left" style="color: white; font-size: 130%; margin-left:10%; margin-right:10%; font-weight:bold">The risk of <mark>social disarticulation</mark> is the main focus of this study.
+                        Social disarticulation means that change of physical location disassembles existing social relationships, including kinship, friendship, and business circles.
+                        Building social harmony has played a major role in China's long history (Sundararajan, 2015). </h6>
+                    <h6 class="text-left" style="color: white; font-size: 130%; margin-left:10%; margin-right:10%; font-weight:bold">
+                        In 2010, Yunnan Normal University conducted a questionnaire survey to understand the relationship between economic stability and quality of life amongst local residents.
+                        This project shows you how people respond to community environment section.
+                        Through the comparision with other studies of dam-induced resettlements in Yunnan province, it aims to understand how human social network change in the resettled community and what factors affect social reconstruction.
+                    </h6>
+                    </div>
+                    </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </section>
+
+            <section data-scene="Lancang">
+                <h3 style="text-align: center">Lancang River</h3>
+                <p>The Lancang river is one of the three parallel rivers in Yunnan province, China. It is also known as the Upper Mekong River. The Lancang river starts at Qinghai province, and flows through Xizang province(Tibet) and Yunnan province. Then the Lancang River becomes the border river between Laos and Burma.</p>
+				<br/><br/>
+                <p>In the 1980s, the Yunnan government asked nationally regonized hydrologists to discover the potential capacity of hydropower development. Later, 14 cascade dams were designed and planned on the Lancang River, including Manwan, Dachaoshan, Xiaowan, and Nuozhadu.(Wang et al, 2014)</p>
+                <br/><br/>
+                <p>China's energy strategy plan outlines a necessary change from fossil fuel to non-fossil fuel. The Chinese energy bureau emphasizes hydropower development in Southwest China. In 2020, the estimated magnitude of hydropower development on Lancang Jiang should reach 76.4% (Yan and Shi 2016).  </p>
+                <br><br>
+                <p><b>Definition of large dam</b>:</p><br>
+                <p>The International Commission on Large Dams states that a large dam either is at least 15 meters tall from its lowest foundation to its crest,
+                    or it stores more than 3 million cubic meters of water with a height between 5 meters and 15 meters.</p>
+				<div class="leg"><p style ="font-weight: bold;">Legend</p>
+                    <br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                    <br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br>
+
+
+                </div>
+				<br/><br/><br/>
+			</section>
+
+            <section data-scene="Manwan">
+                <h3 style="text-align: center">Manwan Dam</h3>
+                <p>Completed time: 1995(source from international rivers)</p>
+				<br><br>
+                <p>Location: middle reach of the Lancang River</p>
+                <br><br>
+                    <p>Ownership: At the beginning, it was co-owned by the Yunnan provincial government and the Chinese Ministry of Water Resources and Electirc Power. Currently, it is owned by Hydrolancang, a subsidiary of China Huaneng Group. </p>
+                <br><br>
+                    <p>Measurement: height:132 m; crest length: 418m; backwater: 70km; inundation:  6225 mu (411 ha) of farmland and 8508 mu (562 ha) of woodlands</p>
+                <br><br>
+                    <p>Details of resettlement:  114 villages in 8 townships and 4 counties(Jingdong, Yun, Fengqing, and Nanjian)</p>
+
+                <br><br>
+                    <img src="img/manwandam.jpg" width="280" height="170" style="display:block;">
+                <p style="font-size:14px">Manwan Dam(source:International Rivers)</p>
+                <br/><br/>
+				<div class="leg">
+				<p style="font-size: 16px;font-weight: bold">Legend</p>
+				<br/><i style="background: #feb24c; margin-right: 8px;"></i><p>Yun County</p><br/>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                </div>
+				<br/><br/><br/>
+			</section>
+			
+			<section data-scene="Dachaoshan">
+                <h3 style="text-align: center">Dachaoshan Dam</h3>
+                    <p>Completed time: 2003(source from international rivers)</p>
+                    <br><br>
+                    <p>Location：middle reach of the Lancang River</p>
+                    <br><br>
+                    <p>Ownership:  Yunnan Dachaoshan Hydropower Co. Ltd</p>
+                    <br><br>
+                    <p>Measurement: height:111 m; crest length: 460.39m; catchment area at dam site: 121000 km2; inundation: paddy field was 1562 mu, dry field was 4762 mu (Chinese National Committee on Large dams, and Tilt) </p>
+                     <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                <br>
+
+                <br><br>
+				<img src="img/dachaoshan.jpg" height="170" width="280" style="display: block;">
+                <p style="font-size: 14px">Dachaoshan dam(source: RCC dams)</p>
+                <br><br>
+                <div class="leg">
+                <p style="font-size: 16px;font-weight: bold">Legend</p>
+                <br>
+                <i style="background: #feb24c; opacity:1; margin-right: 8px;"></i><p>Yun County</p><br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                </div>
+				<br/><br/><br/>
+
+			</section>
+			
+			<section data-scene="Xiaowan">
+                <h3 style="text-align: center">Xiaowan Dam</h3>
+				<br/>
+
+                  <p>Completed time: 2010(Chinese document)</p>
+                    <br><br>
+                    <p>Second tallest dam in the world</p>
+                    <br><br>
+                    <p>Location: middle reach of the Lancang River</p>
+                    <br><br>
+                    <p>Ownership: own by Hydrolancang, a subsidiary of China Huaneng Group</p>
+                    <br><br>
+                    <p>Measurement: height:292m; crest length:902m; Catchment area at dam site: 113300 km2</p>
+
+                <br><br>
+				<img src="img/xiaowanres.jpg" height="170" width="280" style="display: block;">
+                <p style="font-size: 14px">Xiaowan dam(Source:International Rivers)</p>
+                <br><br>
+                <div class="leg">
+                    <p style ="font-size:16px;font-weight: bold;">Legend</p>
+                <br/><i style="background: #f03b20; margin-right: 8px;"></i><p> Fengqing County</p>
+                    <br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                </div>
+				<br/><br/><br/>
+			</section>
+			
+			<section data-scene="Nuozhadu">
+                <h3 style="text-align: center">Nuozhadu Dam</h3>
+				<br/>
+
+                    <p>Completed time: 2012(source from international rivers) </p>
+                    <br><br>
+                    <p>Location: downstream of the Lancang River</p>
+                    <br><br>
+                    <p>Owenership: own by Hydrolancang, a subsidiary of China Huaneng Group</p>
+                    <br><br>
+                    <p>Measurement:height: 261.5m;crest length:608.16m; catchment area: 144710 km2</p>
+
+				<br><br>
+				<img src="img/nuozhadu.jpg" width="280" height="170" style="display:block;">
+                <p style="font-size:14px">Nuozhadu dam(source:Eco-bussiness.com)</p>
+				<br><br>
+				<div class="leg">
+                <p style="font-size:16px;font-weight: bold">Legend</p>
+
+                    <br>
+				<i style="background: #31a354; opacity:1; margin-right: 8px;"></i><p>Lancang County</p>
+                    <br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                    <br>
+				</div>
+				<br/><br/><br/>
+			</section>
+
+            <section data-scene="Data">
+                <h3 class="text-left" style="font-size: 28px" >The Lancang River Dam-induced Resettlement Survey(2010) </h3>
+                <br/>
+                <p style="text-align: left; font-size: 16px">1.I feel loyal to other villagers.<br> 我对这个村子的人感到忠诚</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">2.I am the same as other villagers.<br>我和住在这个村子的人一样 </p>
+                <br>
+                <p style="text-align: left; font-size: 16px">3.If I need advices, I will ask other villagers.<br>如果我需要建议，我会去询问这个村子的人</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">4.I believe that my neighbors will help me under urgent circumstance.<br> 我相信紧急情况下我的邻居会帮助我</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">5.I would like to improve my village with other people.<br>我会和其他人一起合作来改善这个村子</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">6.I won’t move out from the village.<br> 我不会搬离这里</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">7.In general, I love to live in the village.<br> 总体来说，我喜欢住在这里</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">8.In general, I am happy.<br> 总体来说，我很快乐</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">9.I often stop on the way and greet with other villagers.<br>我经常在路上停下和这个村子的人闲聊</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">10.My neighbors often come over to my home.<br> 邻居经常来我家拜访</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">11.My neighbors and I often borrow and help each other. <br>我和邻居之间经常互借东西和互相帮忙</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">12.Individuals in this village will pay back the money.<br> 这个村里的人借钱会还的</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">13.In general, I can believe most individuals in this village.<br> 总体来说，我可以相信大多数村里的人</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">14.From the past five years, loyalty has improved in this village.<br> 在过去的5年中，村里人的可信度有所提高</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">15.Compared to other village, this village does not have many problems.<br>和别的村庄比，这个村庄没什么问题 </p>
+                <br>
+                <p style="text-align: left; font-size: 16px">16.Would you like to support a government project that does not benefit to your family but good for the whole village?<br>现在有一个政府项目，这个项目对您家没有好处，但是对整个村子有好处，您是否还会支持</p>
+                <br>
+                <p style="text-align: left; font-size: 16px">17.Individuals in this village can solve their own problem.<br> 村里的人可以自己解决矛盾</p>
+                <br/>
+                <div class="leg"><p style ="font-weight: bold;">Legend</p>
+                    <br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p>
+
+                </div>
+                <br/><br/><br/>
+            </section>
+
+            <section data-scene="Result">
+                <div class= "text-background-img background-fullscreen-setting text-responsive">
+                    <div class="fullpage-text">
+                    <h4 class="text-center" style="font-size: 30px; color:white; margin-left:-15px;margin-top: 40px">Result(Used Chi-square Test)</h4>
+                    <br>
+                    <table style="width: 90%">
+                        <tr>
+                            <th rowspan="2">#</th>
+                            <th rowspan="2">Question</th>
+                            <th colspan="2">Manwan</th>
+                            <th colspan="2">Dachaoshan</th>
+                            <th colspan="2">Nuozhadu</th>
+                            <th colspan="2">Xiaowan</th>
+                        </tr>
+                        <tr>
+                            <td >Non-resettled</td>
+                            <td>Resettled</td>
+                            <td>Non-resettled</td>
+                            <td>Resettled</td>
+                            <td>Non-resettled</td>
+                            <td>Resettled</td>
+                            <td>Non-resettled</td>
+                            <td>Resettled</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><b>I feel loyal to other villagers</b></td>
+                            <td style="color: yellow"><b>80.77%</b></td>
+                            <td style="color: yellow"><b>91.80%</b></td>
+                            <td style="color: yellow"><b>73.77%</b></td>
+                            <td style="color: yellow"><b>95.24%</b></td>
+                            <td>84.98%</td>
+                            <td>90.00%</td>
+                            <td>92.70%</td>
+                            <td>91.94%</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td><b>I am the same as other villagers</b></td>
+                            <td>75.64%</td>
+                            <td>78.69%</td>
+                            <td style="color: yellow"><b>80.33%</b></td>
+                            <td style="color: yellow"><b>95.24%</b></td>
+                            <td>83.19%</td>
+                            <td>86.67%</td>
+                            <td style="color: red"><b>86.13%</b></td>
+                            <td style="color: red"><b>70.97%</b></td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td><b>If I need advice, I will ask other villagers</b></td>
+                            <td>79.49%</td>
+                            <td>72.13%</td>
+                            <td>86.07%</td>
+                            <td>93.65%</td>
+                            <td style="color: red"><b>80.53%</b></td>
+                            <td style="color: red"><b>53.88%</b></td>
+                            <td>70.07%</td>
+                            <td>58.07%</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td><b>I believe that my neighbors will help me under urgent circumstances</b></td>
+                            <td>83.33%</td>
+                            <td>88.53%</td>
+                            <td style="color: yellow"><b>74.59%</b></td>
+                            <td style="color: yellow"><b>100%</b></td>
+                            <td>81.42%</td>
+                            <td>86.67%</td>
+                            <td>86.13%</td>
+                            <td>93.55%</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td><b>I would like to improve my village with other people</b></td>
+                            <td>94.23%</td>
+                            <td>91.80%</td>
+                            <td>97.53%</td>
+                            <td>96.83%</td>
+                            <td>89.38%</td>
+                            <td>98.33%</td>
+                            <td>88.32%</td>
+                            <td>95.16%</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td><b>I won't move out from the village</b></td>
+                            <td>49.36%</td>
+                            <td>59.02%</td>
+                            <td>47.75%</td>
+                            <td >47.62%</td>
+                            <td style="color: yellow"><b>49.56%</b></td>
+                            <td style="color: yellow"><b>66.67%</b></td>
+                            <td>50.37%</td>
+                            <td>64.52%</td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td><b>In general, I love to live in the village</b></td>
+                            <td>62.82%</td>
+                            <td>63.93%</td>
+                            <td style="color: yellow"><b>67.21%</b></td>
+                            <td style="color: yellow"><b>90.48%</b></td>
+                            <td style="color: yellow"><b>60.18%</b></td>
+                            <td style="color: yellow"><b>83.33%</b></td>
+                            <td>78.10%</td>
+                            <td>67.74%</td>
+                        </tr>
+
+                        <tr>
+                            <td>8</td>
+                            <td><b>In general, I am happy</b></td>
+                            <td style="color: yellow"><b>51.92%</b></td>
+                            <td style="color: yellow"><b>70.49%</b></td>
+                            <td style="color: yellow"><b>75.41%</b></td>
+                            <td style="color: yellow"><b>87.30%</b></td>
+                            <td style="color: yellow"><b>52.12%</b></td>
+                            <td style="color: yellow"><b>86.67%</b></td>
+                            <td style="color: red"><b>83.94%</b></td>
+                            <td style="color: red"><b>67.74%</b></td>
+                        </tr>
+
+                        <tr>
+                            <td>9</td>
+                            <td><b>I often stop on the way and greet other villagers</b></td>
+                            <td>89.10%</td>
+                            <td>88.53%</td>
+                            <td>87.71%</td>
+                            <td>95.24%</td>
+                            <td style="color: red"><b>87.66%</b></td>
+                            <td style="color: red"><b>68.33%</b></td>
+                            <td>79.56%</td>
+                            <td>75.81%</td>
+                        </tr>
+                    </table>
+
+                    <h6 style="color: white;font-size:14px">Numbers with colors indicate the results have significantly difference between resettled and non-resettled villagers</h6>
+                    <h6 style="color: white;font-size:14px"><p style="color: red;font-size: 14px;font-weight: bold"> Red</p> indicates the non-resettled people have a relatively higher positive feedback(Higher agreement)</h6>
+                    <h6 style="color: white;font-size:14px"><p style="color: yellow;font-size: 14px;font-weight: bold">Yellow</p> indicates the resettled people have a relatively higher positive feedback(Higher agreement)</h6>
+                </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </section>
+
+
+            <section data-scene="Result1">
+                <div class= "text-background-img background-fullscreen-setting text-responsive">
+                    <div class="fullpage-text">
+                    <h4 class="text-center" style="font-size: 30px; color:white; margin-left:-15px;margin-top: 40px">Result(Used Chi-square Test)</h4>
+                    <br>
+                    <table style="width: 90%">
+                        <tr>
+                            <th rowspan="2">#</th>
+                            <th rowspan="2">Question</th>
+                            <th colspan="2">Manwan</th>
+                            <th colspan="2">Dachaoshan</th>
+                            <th colspan="2">Nuozhadu</th>
+                            <th colspan="2">Xiaowan</th>
+                        </tr>
+                        <tr>
+                            <td >Non-resettled</td>
+                            <td>Resettled</td>
+                            <td>Non-resettled</td>
+                            <td>Resettled</td>
+                            <td>Non-resettled</td>
+                            <td>Resettled</td>
+                            <td>Non-resettled</td>
+                            <td>Resettled</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>10</td>
+                            <td><b>My neighbors often come over to my home</b></td>
+                            <td>72.88%</td>
+                            <td>85.25%</td>
+                            <td>90.16%</td>
+                            <td>96.83%</td>
+                            <td>70.80%</td>
+                            <td>81.67%</td>
+                            <td>75.18%</td>
+                            <td>77.42%</td>
+                        </tr>
+
+                        <tr>
+                            <td>11</td>
+                            <td><b>My neighbors and I often borrow from and help each other</b></td>
+                            <td>95.51%</td>
+                            <td>88.53%</td>
+                            <td>98.36%</td>
+                            <td>100%</td>
+                            <td>100%</td>
+                            <td>86.67%</td>
+                            <td>85.40%</td>
+                            <td>90.32%</td>
+                        </tr>
+
+                        <tr>
+                            <td>12</td>
+                            <td><b>Individuals in this village will pay back the money</b></td>
+                            <td>93.59%</td>
+                            <td>86.89%</td>
+                            <td style="color: red"><b>91.80%</b></td>
+                            <td style="color: red"><b>80.95%</b></td>
+                            <td>95.58%</td>
+                            <td>93.33%</td>
+                            <td>75.18%</td>
+                            <td>87.10%</td>
+                        </tr>
+
+                        <tr>
+                            <td>13</td>
+                            <td><b>In general, I can believe most individuals in this village</b></td>
+                            <td>80.13%</td>
+                            <td>78.69%</td>
+                            <td style="color: yellow"><b>72.13%</b></td>
+                            <td style="color: yellow"><b>87.30%</b></td>
+                            <td style="color: yellow"><b>72.57%</b></td>
+                            <td style="color: yellow"><b>95.00%</b></td>
+                            <td>84.67%</td>
+                            <td>82.26%</td>
+                        </tr>
+
+                        <tr>
+                            <td>14</td>
+                            <td><b>In the past five years, loyalty has improved in this villages</b></td>
+                            <td style="color: yellow"><b>48.08%</b></td>
+                            <td style="color: yellow"><b>67.21%</b></td>
+                            <td style="color: yellow"><b>58.20%</b></td>
+                            <td style="color: yellow"><b>79.37%</b></td>
+                            <td style="color: yellow"><b>30.97%</b></td>
+                            <td style="color: yellow"><b>66.67%</b></td>
+                            <td>74.45%</td>
+                            <td>61.29%</td>
+                        </tr>
+
+                        <tr>
+                            <td>15</td>
+                            <td><b>Compared to other villages, this village does not have many problems.</b></td>
+                            <td style="color: yellow"><b>42.31%</b></td>
+                            <td style="color: yellow"><b>59.02%</b></td>
+                            <td style="color: yellow"><b>45.90%</b></td>
+                            <td style="color: yellow"><b>77.78%</b></td>
+                            <td style="color: yellow"><b>30.97%</b></td>
+                            <td style="color: yellow"><b>70.00%</b></td>
+                            <td style="color: red"><b>80.29%</b></td>
+                            <td style="color: red"><b>48.39%</b></td>
+                        </tr>
+
+                        <tr>
+                            <td>16</td>
+                            <td><b>Would you like to support a government project that does not benefit to your family but is good for the whole village?</b></td>
+                            <td>95.51%</td>
+                            <td>86.89%</td>
+                            <td>100%</td>
+                            <td>100%</td>
+                            <td>96.46%</td>
+                            <td>98.33%</td>
+                            <td>93.43%</td>
+                            <td>91.94%</td>
+                        </tr>
+
+                        <tr>
+                            <td>17</td>
+                            <td><b>Individuals in this village can solve their own problems</b></td>
+                            <td>58.33%</td>
+                            <td>65.57%</td>
+                            <td style="color: yellow"><b>65.57%</b></td>
+                            <td style="color: yellow"><b>87.30%</b></td>
+                            <td style="color: yellow"><b>42.48%</b></td>
+                            <td style="color: yellow"><b>75.00%</b></td>
+                            <td style="color: red"><b>70.07%</b></td>
+                            <td style="color: red"><b>48.39%</b></td>
+                        </tr>
+
+                    </table>
+
+                    <h6 style="color: white;font-size:14px">Numbers with colors indicate the results have significantly difference between resettled and non-resettled villagers</h6>
+                    <h6 style="color: white;font-size:14px"><p style="color: red;font-size: 14px;font-weight: bold"> Red</p> indicates the non-resettled people have a relatively higher positive feedback(Higher agreement)</h6>
+                    <h6 style="color: white;font-size:14px"><vfp style="color: yellow;font-size: 14px;font-weight: bold">Yellow</vfp> indicates the resettled people have a relatively higher positive feedback(Higher agreement)</h6>
+                 </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </section>
+
+            <section data-scene="Time">
+                <h3 style="text-align: center">Time of Adaptation</h3>
+                <br>
+                <p>Displaced people use different coping strategies to adapt their environments.
+                    Xi and Hwang (2011) have conducted a coping strategy analysis based on communities displace from around the Three Gorges Dam.
+                    They stated that problem-focused coping and emotion-focused coping are two popular strategies.</p>
+                <br><br>
+                 <p>Problem-focused coping aims to let people earned back a sense of control by solving conflicts through negotiation, while emotion-focused coping aims to let people view their failure and turn it into an opportunity to improve the situation.
+                     Based on Questions 15 and 17, it is clear that all surveyed villages have problems. Villagers from the Manwan, Dachaoshan and Nuozhadu resettled communities have more faith in their ability to solve problems by themselves.</p>
+                <br><br>
+                <p>  Tilt (2015) also reported that after facing income reductions due to failure of agriculture production, people switched their income sources from agriculture to small business, industrial sectors, or movement to urban areas.</p>
+                <br><br>
+                  <p>  Due to the limited sources available to discuss the adaptive resilience of resettled villages, more research into this issue should be done in the future.
+                </p>
+                <br><br>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+                </div>
+
+                <br><br><br><br><br>
+            </section>
+
+            <section data-scene="Compensation">
+                <h3 style="text-align: center">Compensation</h3>
+                <br/>
+                <p>Compensation is a key financial tool for resettlements.
+                    The purpose of compensation is to improve wealth for resettled people and decrease inequality caused by displacement.
+                    Compensation aims to cover the material losses after relocation (Zhang et al., 2015).
+                </p>
+                <br><br>
+                <p>In China, the central government provides laws and policies as a standard for compensation designers but the methods of measuring compensation vary between projects.
+                    After years of reform, the land management law and compensation policy added more details to the compensation design. Resettled villagers from the four dams considered in this study received different levels of compensation.
+                    The difference in compensation affects resettled villagers' financial resource for adaptation in the new community environment.
+                    Without sufficient and stable financial supports, resettled villagers are more likely to suffer in a certain level of depression(Wilmsen et al, 2011). </p>
+                <br><br>
+
+                <a href="Population.html"><button class="button">Resettled Population</button></a>
+<br><br>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+                </div>
+                <br><br><br><br><br>
+            </section>
+
+            <section data-scene="Labor">
+                <h3 style="text-align: center">Labor, Income and Resources</h3>
+                <br>
+                <p>As Cernea (1997) mentioned in the risk and reconstruction model, impoverishment often becomes a problem for resettled villagers, even though they receive compensation.
+                    Almost 75% of the population in Yunnan are farmers, so arable agricultural land is a key resource to keep income stable.</p>
+                <br><br>
+                <p>Historically, people settled this area because it was easy to irrigate, had fertile soil, and a suitable climate for agriculture.
+                    However, when hydropower development rushed into the Lancang River Basin, these agricultural areas also became good locations for hydropower projects.
+                    As a result, it is difficult to find new, equally good agricultural areas for relocation (Chen, 2008).
+                    Manwan, Dachaoshan and Xiaowan reported a certain level of impoverishment in the resettled communities. Nuozhadu was under construction, so no report is associated with the issue. </p>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+</div>
+                <br><br><br><br><br>
+            </section>
+
+            <section data-scene="Age">
+                <h3 style="text-align: center">Demographics</h3>
+                <br>
+                <p>Displacement plans normally ignore cultural elements. Cultural diversity increased the negative impact to resettled communities (Chen, 2008). </p>
+                <br>
+                <p>The major ethnic groups in this study include Han, Yi, and Lahu populations, as well as small populations of Bulang, Dai, Hui, Jingpo, Hani, Wa and Yao people.
+                    Different ethnic identities lead to different choices in terms of styles of houses, agricultural products, clothes, customs, and social values.
+                    Most people have established their "guanxi" by looking for people with familiar culture. </p>
+                <br><br>
+                <p>Meanwhile, older people spent most of their lives practicing traditional agricultural production. It is more difficult for them to adjust than the young people. </p>
+                <br><br>
+                <p>   Rural agriculture is an important source of income for all villagers. The change of demographics closely connect to and affect working age labor (18 to 60). (Anriquez and Stloukal, 2008)</p>
+                <br><br>
+                <p style="font-weight: bold">Ethnicity and Age Graphics</p>
+                <div class="btn-group">
+                    <a href="manwan.html"> <button class="button">Manwan</button></a>
+                    <a href="dachaoshan.html"><button class="button">Dachaoshan</button></a>
+                    <a href="xiaowan.html"><button class="button">Xiaowan</button> </a>
+                    <a href="nuozhadu.html"><button class="button">Nuozhadu</button></a>
+                </div>
+                <br><br>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                <i class="circle" style="background:#756bb1; border-color:#ffffff; width:15px; height:15px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+                </div>
+                <br><br><br><br><br>
+            </section>
+
+
+
+            <section data-scene="Limitations">
+                <div class= "text-background-img background-fullscreen-setting">
+                    <div class="fullpage-text">
+
+                        <h4 class="text-center" style="font-size: 40px; color:white; margin-left:-15px;margin-top: 30px">Limitations of This Project</h4>
+                        <h4 class="text-left" style="font-size:120%; color:white; margin-left:100px;margin-right: 50px; margin-top:5px;margin-bottom: 10px">
+                            There are some limitations that need to be considered in this study.<br><br>
+                            1. Due to the cross-sectional design of the 2010 Lancang River Dam-induced Resettlement Survey, causal inferences should be avoided.
+                            <br><br>
+                            2. When the survey was conducted, some resettled communities finished longer ago, like Manwan and Dachaoshan, were more likely to experience population change.
+                            Some people might not stay in the resettled communities, choosing to resettle to urban areas or other villages, so they were excluded from this survey.
+                            However, the reasons why people chose to leave resettled communities remains unknown, thus, it can be said that they may have left because of unsatisfied compensation, increased demand in urban labor, better income opportunity in other areas, a poor new community environment or because they couldn't gain control of their social life.
+                            <br><br>
+                            3. It is difficult to use quantitative methods to measure subjective feelings about a community environment.
+                            Due to cultural and age differences, people value their social relationships and subjective well-beings in different ways.
+                            For example, people feel happy in different ways.
+                            A farmer might feel happy because he earned money from his agricultural production and was able to feed his family.
+                            A fisherman might feel happy when he caught a sufficient amount of fish. A mushroom gatherer might feel happy if the rainy season brought a good amount of precipitation to feed the next year's mushroom growth.
+                            Thus, this section in the survey cannot provide details about people's choices of answers.
+                            <br><br>
+                            For the discussion part, although there is sufficient information about compensation of at the four dam sites, some uncertainties remain.
+                            It is still unknown why people received different compensation packages from the same dam projects.
+                            For example, the government built new brick houses for the Xiaowan displaced villages, but not all villagers received the same type of house.
+                            Also, the survey could not ask how people spent their compensation subsidy. Thus, it is hard to determine whether or not resettled villagers spent their subsidy to help adapt to their new life.
+                            Another limitation of comparing compensation is that not all compensation packages were delivered at the same time and it is unknown why.
+                            This time difference might cause some difficulty for resettled villagers to adjust to new community environments.
+                            Meanwhile, for the demographic information, a few people did not provide full information about their ethnicity or other family members' ethnicity but this should not make a significant difference.
+                            Due to the one child policy in China, some home owners might not willing to put all family members in the survey but there is no evidence to support this assumption.
+                        </h4>
+
+
+                    </div>
+                </div>
+                <br/><br/><br/>
+            </section>
+
+
+
+        	 <section data-scene="end">
+				 	<div class= "end-background-img background-fullscreen-setting">
+                        <div class="fullpage-text">
+                            <h4 class ="text-center" style="font-size:20px; margin-top:0; color: white; text-shadow: gray 0.0em 0.0em 0.0em; margin-left: 25%; margin-right:25%; text-align:justify;">
+                                All in all, the issue of dam-induced displacement is complicated.
+                                Researchers and the national council have made efforts to improve the experience of displaced villages but negative impacts to resettled villagers still occur.
+                                This study shows that future research is needed to learn more about how adaptive resilience of resettled villages affects community reconstruction, how financial and human resources play a role in it, and what can be done to help resettled people from different ethnic groups to adapt their new lives and cope with people with different culture.
+                                </h4>
+
+                        </div>
+                        <!--<h4 class="text-center" style="color:white;font-size:25px">Individuals and their family and friends have lived in the former villages for a long time and established their comfortable social network. These dams uproot the communities and dissolve individuals' comfort zone. </h4><br/><br/>
+                        <h4 class="text-center" style="color:white;font-size:25px">"The social networks provide a basis for communal identities, but they also serve more pragmatic and instrumental purposes, helping to distribute resources, disseminate information, and provide economic support in good times and bad" -- Dr. Byran Tilt</h4>
+                        -->
+                    </div>
+             </section>
+        	
+
+        	<i class="animated zoomIn infinite glyphicon glyphicon-arrow-down arrow-down"></i>
+
+        </div>
+        <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
+    </div>
+    
+    <i class="fa fa-info-circle social" style="right:70px;" data-toggle="modal" data-target="#info-modal"></i>
+    
+	<a class="fa fa-facebook-square social2" style="right:55px;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+        
+    <a class="fa fa-twitter-square social3" style="right:40px;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+	
+	<a class="fa fa-github-square social3" style="right:25px;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
+
+    
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">About</h2>
+                </div>
+                <div class="modal-body">
+                    <p2>Basemap from Mapbox</p2><br>
+                    <p2>Cover and End photo by Luc Forsyth</p2><br>
+                    <p2>Other background photo: Bryan Tilt</p2><br>
+                    <p2 style="font-size:20px">Geographic Data</p2><br>
+                    <p2>Resettlement data based on The Lancang River Dam-induced Resettlement Survey(2010) and Dam-impacted Database by Dr. Bryan Tilt</p2><br/>
+                    <p2>Province Boundary: http://www.diva-gis.org/</p2>
+                    <br>
+                	<p2 style="font-size:20px">Text Data</p2><br>
+                	<p2>Wang, Pu., et al. Large Dam Dilemma : An Exploration of the Impacts of Hydro Projects on People and the Environment in China. 1st ed., Springer, 2014.</p2>
+                </div>
+                <div class="modal-footer">
+                    <p>Created with Leaflet and storymap.js</p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="share-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <a class="fa fa-facebook-square social2" style="font-size: 8em; display:inline;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+    				<a class="fa fa-twitter-square social3" style="font-size: 8em; display:inline;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+					<a class="fa fa-github-square social3" style="font-size: 8em; display:inline;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
+					<br/>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+
+
+//	
+//<p style="text-align:left; font-weight:bold">Hover for source</p>'
+
+     layers = {
+             'boundary': [ L.geoJson.ajax('assets/yunnanb.geojson',  {
+            color: '#006080',
+            weight: 5,
+            fillOpacity: 0.3,
+            opacity: 0.3
+               })
+                ],
+
+              'yun': [ L.geoJson.ajax('assets/yun.geojson',  {
+            color: '#feb24c',
+            weight: 2,
+            opacity: 0.7
+               })
+               ],
+
+             'fengqing': [ L.geoJson.ajax('assets/fengqing.geojson',  {
+            color: '#f03b20',
+            weight: 2,
+            opacity: 0.7
+                })
+                ],
+
+              'lancang': [ L.geoJson.ajax('assets/lancang.geojson',  {
+                 color: '#31a354',
+                 weight: 2,
+                 opacity: 0.7
+                 })],
+
+            'basemap': [ L.tileLayer('https://api.mapbox.com/styles/v1/winkyt/cjaa1zq3w21oe2so5a6l5zqd3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2lua3l0IiwiYSI6ImNqMjhhZWI4cjAwbzAycW1tYWxsa3VibzEifQ.Zze2mKeLBpZql6xFILyq0g')],
+
+
+
+            'daminfo': [L.geoJson.ajax('assets/fourdam.geojson', {
+            	pointToLayer: function (feature, latlng) {
+    			return L.circleMarker(latlng, {
+    				color: '#ffffff',
+    				fillColor: '#756bb1',
+    				radius: 4,
+    				opacity: 1,
+    				weight: 1,
+    				fillOpacity: 1
+    				}
+    					).bindTooltip(feature.properties.Dam_NAME, {className: 'label_tooltip'});
+    				}
+				})],
+
+        'surgroup': [L.geoJson.ajax('assets/survey.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Non-resettled Households:</p>"
+                    + feature.properties.NONRESETTLED + "<br>"+ "<p style='font-size: 12px'>Resettled Households:</p>"
+                    + feature.properties.RESETTLED, {className:'label_tooltip'});
+            }
+        })],
+
+        'manpop': [L.geoJson.ajax('assets/manwanpop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'dapop': [L.geoJson.ajax('assets/dapop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'xiaopop': [L.geoJson.ajax('assets/xiaopop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'nuopop': [L.geoJson.ajax('assets/nuopop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'adaptation': [L.geoJson.ajax('assets/adaptation.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 4,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.Adaptation + '</div>', {className: 'label_tooltip'});
+            }
+        })],
+
+         'compensation': [L.geoJson.ajax('assets/summary.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#756bb1',
+                         radius: 4,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.compensation + '</div>', {className: 'label_tooltip'});
+             }
+         })],
+
+         'labor': [L.geoJson.ajax('assets/summary.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#756bb1',
+                         radius: 4,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.labor + '</div>', {className: 'label_tooltip'});
+             }
+         })],
+
+         'age': [L.geoJson.ajax('assets/summary.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#756bb1',
+                         radius: 4,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.demographic + '</div>', {className: 'label_tooltip'});
+             }
+         })],
+
+
+
+
+    };
+
+    var scenes = {
+            overview: {lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Info:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Model:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Lancang: {lat: 25.300, lng:95.5, zoom: 6, name: 'Lancang River', layers:['boundary','yun','lancang','fengqing','daminfo']},
+            Manwan: {lat: 24.700, lng:99.0, zoom:8 , name: 'Manwan', layers:['boundary','yun','manpop']},
+		    Dachaoshan: {lat: 24.700, lng:99.0, zoom: 8, name: 'Dachaoshan', layers:['boundary','yun','dapop']},
+            Xiaowan: {lat: 24.700, lng:99.0, zoom: 8, name: 'Xiaowan', layers:['boundary','fengqing','xiaopop']},
+            Nuozhadu: {lat: 22.700, lng:99.0, zoom: 8, name: 'Nuozhadu', layers:['boundary','lancang','nuopop']},
+            Data:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','surgroup']},
+            Result:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Result1:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Time:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','adaptation']},
+            Compensation:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','compensation']},
+            Labor:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','labor']},
+            Age:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','age']},
+            Limitations:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            end: {lat: 25.300, lng:95.5, zoom: 7, name: 'End',position: 'fullpage'}
+    };
+
+
+
+$('.main').storymap({
+    scenes: scenes,
+    layers:layers,
+    legend: false,
+    scale:false,
+    navwidget: true,
+    createMap: function () {
+        // create a map in the "map" div, set the view to a given place and zoom
+        //test: returen lat lng
+        /*map.on('click', function(e) {
+         alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+         });*/
+
+        map = L.map('map', {center: [25.300, 102.153], zoom: 7});
+        L.tileLayer('https://api.mapbox.com/styles/v1/winkyt/cjaa1zq3w21oe2so5a6l5zqd3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2lua3l0IiwiYSI6ImNqMjhhZWI4cjAwbzAycW1tYWxsa3VibzEifQ.Zze2mKeLBpZql6xFILyq0g\n', {
+            minZoom:5,
+            maxZoom: 10,
+            attribution: '<a target="https://www.mapbox.com/maps/">Mapbox</a>',
+            id: 'mapbox.streets',
+            detectRetina: true
+        }).addTo(map);
+
+        miniMap = new L.Control.GlobeMiniMap({
+            marker:'#B51E1E',
+            position: 'bottomright'
+        }).addTo(map);
+
+        document.getElementsByClassName("leaflet-control-attribution")[0].style.visibility = "hidden";
+        return map;
+
+    }
+});
+
+
+</script>
+</body>
+</html>
