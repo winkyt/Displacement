@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "DAM": "Manwan", "YEAR": 1995, "DISPLACED_POP": 7260, "ESTIMATED_DIS_POP": 3208, "Longitude": 100.4489, "Latitude": 24.6222, "NONRESETTLED": 156, "RESETTLED": 61 }, "geometry": { "type": "Point", "coordinates": [ 100.4489, 24.6222 ] } }
+]
+}

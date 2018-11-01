@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Dam": "Manwan", "Completed Year": 1995, "displaced population": 7260, "estimated_dis_pop": 3208, "Longitude": 100.4489, "Latitude": 24.6222, "Non-resettled_Households": 156, "Resettled_Household": 61 }, "geometry": { "type": "Point", "coordinates": [ 100.4489, 24.6222 ] } },
+{ "type": "Feature", "properties": { "Dam": "Dachaoshan", "Completed Year": 2003, "displaced population": 6363, "estimated_dis_pop": 5200, "Longitude": 100.3703, "Latitude": 24.0249, "Non-resettled_Households": 122, "Resettled_Household": 63 }, "geometry": { "type": "Point", "coordinates": [ 100.3703, 24.0249 ] } },
+{ "type": "Feature", "properties": { "Dam": "Xiaowan", "Completed Year": 2010, "displaced population": 42000, "estimated_dis_pop": 35000, "Longitude": 100.0914, "Latitude": 24.705, "Non-resettled_Households": 137, "Resettled_Household": 62 }, "geometry": { "type": "Point", "coordinates": [ 100.0914, 24.705 ] } },
+{ "type": "Feature", "properties": { "Dam": "Nuozhadu", "Completed Year": 2012, "displaced population": 40000, "estimated_dis_pop": 14800, "Longitude": 100.433, "Latitude": 22.6344, "Non-resettled_Households": 113, "Resettled_Household": 60 }, "geometry": { "type": "Point", "coordinates": [ 100.433, 22.6344 ] } }
+]
+}

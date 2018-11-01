@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "DAM": "Xiaowan", "YEAR": 2010, "DISPLACED_POP": 42000, "ESTIMATED_DIS_POP": 35000, "Longitude": 100.0914, "Latitude": 24.705, "NONRESETTLED": 137, "RESETTLED": 62 }, "geometry": { "type": "Point", "coordinates": [ 100.0914, 24.705 ] } }
+]
+}

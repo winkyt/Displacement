@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "DAM": "Manwan", "YEAR": 1995, "DISPLACED_POP": 7260, "ESTIMATED_DIS_POP": 3208, "Longitude": 100.4489, "Latitude": 24.6222, "NONRESETTLED": 156, "RESETTLED": 61 }, "geometry": { "type": "Point", "coordinates": [ 100.4489, 24.6222 ] } },
+{ "type": "Feature", "properties": { "DAM": "Dachaoshan", "YEAR": 2003, "DISPLACED_POP": 6363, "ESTIMATED_DIS_POP": 5200, "Longitude": 100.3703, "Latitude": 24.0249, "NONRESETTLED": 122, "RESETTLED": 63 }, "geometry": { "type": "Point", "coordinates": [ 100.3703, 24.0249 ] } },
+{ "type": "Feature", "properties": { "DAM": "Xiaowan", "YEAR": 2010, "DISPLACED_POP": 42000, "ESTIMATED_DIS_POP": 35000, "Longitude": 100.0914, "Latitude": 24.705, "NONRESETTLED": 137, "RESETTLED": 62 }, "geometry": { "type": "Point", "coordinates": [ 100.0914, 24.705 ] } },
+{ "type": "Feature", "properties": { "DAM": "Nuozhadu", "YEAR": 2012, "DISPLACED_POP": 40000, "ESTIMATED_DIS_POP": 14800, "Longitude": 100.433, "Latitude": 22.6344, "NONRESETTLED": 113, "RESETTLED": 60 }, "geometry": { "type": "Point", "coordinates": [ 100.433, 22.6344 ] } }
+]
+}
