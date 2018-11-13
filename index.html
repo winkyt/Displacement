@@ -73,12 +73,12 @@
 <div class="navbar navbar-inverse navbar-fixed-bottom navbar-toggleable-md" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header" style="left:10px; position: fixed;">
-            <a class="navbar-brand" href="https://github.com/winkyt">Home</a>
+        <div class="navbar-header" style="left:10px">
+            <a class="navbar-brand" href="https://winkyt.github.io">Home</a>
             <a class="navbar-brand" href="#">Four Dams on the Lancang River</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" style="padding-left: 0.5%">
+        <div class="collapse navbar-collapse" style="padding-left: 1%">
             <ul class="nav navbar-nav navbar-right">
                 <li style="font-size: 16px">
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=Info]').offset().top - $(window).scrollTop() - 10);">Introduction</a>
@@ -138,9 +138,11 @@
                             <a href="javascript:window.scrollBy(0, $('section[data-scene=Limitations]').offset().top - $(window).scrollTop() - 10);" style="color:black;">Limitations</a>
                         </li>
                     </ul>
+                </li>
                 <li style="font-size: 14px">
             		<a  data-toggle="modal" data-target="#info-modal">About</a>
                 </li>
+
                 <li style="font-size: 14px">
                  <div class="dropdown">
   					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -173,7 +175,7 @@
                             Between Tibet and Yunnan’s deep gorges, the large elevation gradient provides prime conditions for hydropower projects.
                             A couple hydroelectric projects are built on the upper Mekong River, also called the Lancang River.
                             This site tells you about four dams on the Lancang River, including Manwan, Dachaoshan, Nuozhadu, and Xiaowan,
-                            and their community reconsturction in the resettled villages.
+                            and their social reconstruction in the communities of the resettled villages.
 						</h4>
                 	<br/><br/><br/><br/>
                 	<p class ="text-center" style="font-size:18px; margin-top:0px; color: white; text-shadow: black 0em 0em 0em; margin-left: 30%; margin-right:30%; display:block;">Created by Yingqi Tang, Geography M.S Candidate, Oregon State University</p>
@@ -188,20 +190,19 @@
 
                         <h4 class="text-center" style="font-size: 40px; color:white; margin-left:-15px;margin-top: 40px">Introduction</h4>
                     <h4 class="text-left" style="font-size:150%; color:white; margin-left:150px;margin-right: 150px; margin-top:10px;margin-bottom: 10px">
-                            Every year, millions of people in the world move away from their home due to war, national infrastructure development, climate change or etc.
-                            Worldwide, nearly 50,000 large dams have been built by the end of 20th century (Nguyen, Pham, and Lobry de Bruyn, 2017).
-                            Currently, almost half of the world's large dams are built in China (Wilmsen, 2011).
-                            The Chinese government has constructed multiple large hydropower dams in southwest China and planned more.
-                            Driven by economic reform in 1980, population growth, and high electricity demand, the Chinese government proposed the "West-East electricity transmission project"(Ioanides and Tilt, 2015).
-                            Yunnan was one of the selected areas for hydropower developmemt because of its rich water resources </h4>
+                        Involuntary movement, also known as forced displacement, has affected millions of people worldwide. At the end of 20th century, approximately 80 million people had been displaced due to hydropower projects, including 22.5 million people in China.
+                         </h4>
                     <h4 class="text-left" style="font-size:150%; color:white; margin-left:150px;margin-right: 150px; margin-top:10px;margin-bottom: 10px">
-                        The hydropower dams fulfilled the high demand for electricity in southeastern China.
-                        However, they also created some environmental, cultural and social problems.
-                        One of these problems was development-forced displacement and resettlement (DFDR).
-                        The affected groups of people are generally from low socioeconomic backgrounds (Aiken and Leigh, 2015).
-                        Resettlement may cause social problems, due to the involuntarily resettlement and the uprooting of villagers' social relationships, disrupting their familial and commercial networks.
-                        Evidence shows that the effect of resettlement could affect generations of displaced villagers (Tilt and Gerkey, 2016).
-                        Involuntary displacement has become a stressor for many resettled individuals (Xi and Hwang, 2011).
+                        Dam-induced migration not only causes material loss, such as loss of homes and agricultural lands, but this migration also causes social capital loss, disrupting individuals’ long term sustainable social network.
+                        In order to understand the factors that might affect social reconstruction in resettled communities, this research studies community social environments at four dam sites (Manwan, Dachaoshan, Xiaowan, and Nuozhadu) on the Lancang River in China.</h4>
+                        <h4 class="text-left" style="font-size:150%; color:white; margin-left:150px;margin-right: 150px; margin-top:10px;margin-bottom: 10px">
+                        Data is drawn from the “Community Environment” of The Lancang River Dam-induced Resettlement Survey (2010).
+                        This survey asked questions about participants’ economic health, social networks, and perceived well-being.
+                            Chi-square tests were used to compare the differences in survey answers between non-resettled and resettled communities at each dam site.</h4>
+                        <h4 class="text-left" style="font-size:150%; color:white; margin-left:150px;margin-right: 150px; margin-top:10px;margin-bottom: 10px">
+                        The result indicated that the resettled communities of Manwan, Dachaoshan and Nuozhadu have higher community environment satisfaction than their non-resettled counterparts, while Xiaowan shows the opposite.
+                        Factors, like time for adaption, type of relocation compensation, as well as households’ income, labor, and other resources, and demographics (ethnicity and age), might affect social reconstruction in resettled communities.
+                            Identifying potential relationships among these factors and social capital will help to promote strategies for social reconstruction necessitated by future dam-induced displacement.</h4>
                     </h4>
                     </div>
                 </div>
@@ -918,7 +919,7 @@
                })
                 ],
 
-              'yun': [ L.geoJson.ajax('assets/Yun.geojson',  {
+              'yun': [ L.geoJson.ajax('assets/yun.geojson',  {
             color: '#feb24c',
             weight: 2,
             opacity: 0.7
