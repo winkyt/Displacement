@@ -1,9 +1,6 @@
 .sidebar {
    /* display: none;*/
 }
-body{
-    margin: 0;
-}
 
 .main {
     padding:20px;
@@ -93,19 +90,19 @@ body{
 
 .navbar {
 	min-height:25px !important;
-	background-color:#2171b5;
-	border-color:#4292c6;
+	background-color:lightskyblue;
+	border-color:lightskyblue;
 }
 
 .navwidget li a:visited,.navbar li a:active, .navbar li a:link, .navbar-inverse .navbar-nav>li>a {color: white; text-decoration:none;}
-.navbar-inverse .navbar-nav>li>a:hover {color: white; text-decoration:none; background-color:#08306b; cursor:pointer;}
+.navbar-inverse .navbar-nav>li>a:hover {color: white; text-decoration:none; background-color:deepskyblue; cursor:pointer;}
 
 .navbar-inverse .navbar-brand {color: white; text-decoration:none; border:0;}
-.navbar-inverse .navbar-brand:hover {color: white; text-decoration:none; background-color:#08306b;}
+.navbar-inverse .navbar-brand:hover {color: white; text-decoration:none; background-color:deepskyblue;}
 
-#dropdownMenuButton, .btn-secondary {color: white; background-color:#2171b5;
+#dropdownMenuButton, .btn-secondary {color: white; background-color:lightskyblue;
      padding-top:3px !important; padding-bottom:2px !important; border:0; height:25px; vertical-align:middle;}
-#dropdownMenuButton:hover{color: white; background-color:#08306b; border-radius: 0px;}
+#dropdownMenuButton:hover{color: white; background-color:lightskyblue; border-radius: 0px;}
 .dropdown-menu{min-width:80px;}
 .dropdown-item{color:white; padding-left:5px;}
 .dropdown-item:hover{color:gray;}
@@ -126,23 +123,11 @@ h4{
 	color: #000000;
 	}
 
-h5{
-    font-family: "Inconsolata", sans-serif;
-    font-size: 14px;
-    text-align: left;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    color: #000000;
-
-}
 h6 {
     font-family: "Inconsolata", sans-serif;
     font-size: 12px;
     text-align: center;
     margin-left: 50px;
-    margin-right: 50px;
     color: #000000;
 }
 	
@@ -170,16 +155,6 @@ h6 {
 .overview-background-img {
     background: url(../img/lancang.jpg) no-repeat center center fixed;
 }
-
-.fullpage-text{
-    text-align: justify;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    transform: translate(-5%,-5%);
-    color: white;
-}
-
 
 .text-background-img {
     /*background-color: green;*/
@@ -326,7 +301,7 @@ section {
 .arrow-up {
     position:fixed;
    	margin-left: -15px;
-    top:4%;
+    top:37px;
     cursor: pointer;
     z-index:1002;
     font-size: 24px;
@@ -338,7 +313,7 @@ section {
 .arrow-down {
     position:fixed;
    	margin-left: -15px;
-    top:92%;
+    top:94%;
     cursor: pointer;
     z-index:1002;
     font-size: 24px;
@@ -433,6 +408,12 @@ h3{
 	font-weight:bold;
 	color:black;
 	}
+h5{
+font-family: 'La Belle Aurore', cursive;
+	text-align: justify;
+	font-size: 20px;
+	color: #bf4040;
+}
 
 .img:hover{
 	border:4px solid #ffffff;	
@@ -519,54 +500,4 @@ th, td {
 mark {
     background-color: yellow;
     color: black;
-}
-
-.button{
-    background-color: #d95f0e;
-    border: none;
-    color: white;
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 12px;
-}
-
-.btn-group .button {
-    background-color: #d95f0e;
-    border: 1px solid orangered;
-    color: white;
-    padding: 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    float: left;
-}
-.btn-group .button:not(:last-child) {
-    border-right: none; /* Prevent double borders */
-}
-.btn-group .button:hover {
-    background-color: #feb24c;
-}
-
-.embeded-photo img {
-    /*margin-top:20px;*/
-    margin: 4px 4px 4px 4px;
-    box-shadow: 0 0 0 4px #fff;
-    /*border: 1px solid #ddd;*/
-    border-radius: 1px;
-    padding: 5px;
-    background-color: white;
-    /*max-width: 480px;*/
-    height: 300px !important;
-}
-
-.embeded-photo p {
-    font-size: 15px;
-    font-weight: bold;
 }
