@@ -1,8 +1,23 @@
+/*!
+ * Start Bootstrap - 3 Col Portfolio (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ * Modified by Yingqi Tang, 2018
+ */
+
 .sidebar {
    /* display: none;*/
 }
-body{
-    margin: 0;
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    font-family: "Inconsolata", sans-serif;
+    background-color: darkgrey;
+}
+
+.container{
+    display: flex;
+    color:white;
 }
 
 .main {
@@ -48,7 +63,9 @@ body{
     font-size: 40px;
 }
 
-
+.row{
+    display: flex;
+}
 .navwidget {
     position: fixed;
     top: 5%;
@@ -198,7 +215,7 @@ h6 {
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .sidebar {
         position: fixed;
         top: 0;
@@ -226,7 +243,7 @@ h6 {
 
 }
 
-@media (min-width: 0px) and (max-width: 767px)  {
+@media (min-width: 0px) and (max-width: 768px)  {
     .sidebar {
         position: fixed;
         top: 0;
@@ -511,9 +528,9 @@ th, td {
 }
 
 .tooltipdiv{
-    width:300px;
+    width:400px;
     white-space: normal;
-    font-size: 15px;
+    font-size: 1vw;
 }
 
 mark {
