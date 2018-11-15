@@ -110,19 +110,19 @@ body {
 
 .navbar {
 	min-height:25px !important;
-	background-color:#2171b5;
-	border-color:#4292c6;
+	background-color:#998888;
+	border-color:#CDACA1;
 }
 
 .navwidget li a:visited,.navbar li a:active, .navbar li a:link, .navbar-inverse .navbar-nav>li>a {color: white; text-decoration:none;}
-.navbar-inverse .navbar-nav>li>a:hover {color: white; text-decoration:none; background-color:#08306b; cursor:pointer;}
+.navbar-inverse .navbar-nav>li>a:hover {color: white; text-decoration:none; background-color:#9899A6; cursor:pointer;}
 
 .navbar-inverse .navbar-brand {color: white; text-decoration:none; border:0;}
-.navbar-inverse .navbar-brand:hover {color: white; text-decoration:none; background-color:#08306b;}
+.navbar-inverse .navbar-brand:hover {color: white; text-decoration:none; background-color:#9899A6;}
 
-#dropdownMenuButton, .btn-secondary {color: white; background-color:#2171b5;
+#dropdownMenuButton, .btn-secondary {color: white; background-color:#998888;
      padding-top:3px !important; padding-bottom:2px !important; border:0; height:25px; vertical-align:middle;}
-#dropdownMenuButton:hover{color: white; background-color:#08306b; border-radius: 0px;}
+#dropdownMenuButton:hover{color: white; background-color:#9899A6; border-radius: 0px;}
 .dropdown-menu{min-width:80px;}
 .dropdown-item{color:white; padding-left:5px;}
 .dropdown-item:hover{color:gray;}
@@ -237,7 +237,7 @@ h6 {
         padding-left: 25px;
         z-index: 1001;
         width: 35%;
-        background-color:lightblue;
+        background-color:#D3D5D4;
 
     }
 
@@ -534,7 +534,7 @@ th, td {
 }
 
 mark {
-    background-color: yellow;
+    background-color: orange;
     color: black;
 }
 
