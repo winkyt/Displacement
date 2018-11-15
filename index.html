@@ -78,8 +78,8 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header" style="left:10px">
-            <a class="navbar-brand" href="https://winkyt.github.io">Home</a>
-            <a class="navbar-brand" href="#">Four Dams on the Lancang River</a>
+            <a class="navbar-brand" href="https://winkyt.github.io">Yingqi</a>
+            <a class="navbar-brand" href="#">Home</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" style="padding-left: 1%">
@@ -88,7 +88,7 @@
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=Info]').offset().top - $(window).scrollTop() - 10);">Introduction</a>
                 </li>
                 <li style="font-size: 16px">
-                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Model]').offset().top - $(window).scrollTop() - 10);">Cernea's Model</a>
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Model]').offset().top - $(window).scrollTop() - 10);">R&R Model</a>
                 </li>
                 <li style="font-size: 16px">
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=Lancang]').offset().top - $(window).scrollTop() - 10);">Lancang River</a>
@@ -168,7 +168,7 @@
             <section data-scene="overview">
 				 	<div class= "overview-background-img background-fullscreen-setting">
                         <div class="fullpage-text">
-                        <h4 class="text-center" style="color:white;font-size:3.2vw;padding-left: 2%; padding-right:3%; margin-top: 3%">From social disarticulation to community reconstruction</h4>
+                        <h4 class="text-center" style="color:white;font-size:3.2vw;padding-left: 2%; padding-right:3%; margin-top: 3%">Social Reconstruction of Dam-induced Resettled Community</h4>
 						<br>
 						<h4 class ="text-center" style="font-size:1.7vw; margin-top:0; color: white; text-shadow: gray 0.0em 0.0em 0.0em; margin-left: 25%; margin-right:25%; text-align:justify;">
                             Between Tibet and Yunnan’s deep gorges, the large elevation gradient provides prime conditions for hydropower projects.
@@ -213,8 +213,8 @@
                     <div>
                     <h4 class="text-center" style="font-size: 3.2vw; color:white; margin-left:-15px;margin-top: 40px">Impoverishment Risk and Reconstruction Model</h4>
 
-                        <img src="img/risk_model.png" alt="Michael Cernea's Risk and Reconstruction Model" width="35%" height="25%" style="display:block; margin-left: 30%">
-                        <p class="text-center" style="font-size: 0.3vw; color:white; margin-left:50%;font-weight: bold">Michael Cernea,1997</p>
+                        <img src="img/risk_model.png" alt="Michael Cernea's Risk and Reconstruction Model" width="40%" height="32.5%" style="display:block; margin-left: 30%">
+                        <p class="text-center" style="font-size: 1vw; color:white; margin-left:50%;font-weight: bold">Michael Cernea,1997</p>
 
                     <br>
                         <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:8%;margin-right: 3%; margin-top:10px;margin-bottom: 10px">
@@ -260,7 +260,7 @@
 				<div class="leg"><p style ="font-weight: bold;">Legend</p>
                     <br>
 
-                    <br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br> <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+                    <br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #4eb3d3; margin-right: 8px;"></i><p style="color: black">Lancang River</p><br><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br> <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
 
 
                 </div>
@@ -680,6 +680,12 @@ photoLayer3.add(photos3);
                })
                 ],
 
+         'river':[ L.geoJson.ajax('assets/lancangjiang.geojson',  {
+             color: '#4eb3d3',
+             weight: 8,
+             opacity: 0.5
+         })],
+
               'yun': [ L.geoJson.ajax('assets/Yun.geojson',  {
             color: '#feb24c',
             weight: 2,
@@ -699,9 +705,6 @@ photoLayer3.add(photos3);
                  weight: 2,
                  opacity: 0.7
                  })],
-
-            'basemap': [ L.tileLayer('https://api.mapbox.com/styles/v1/winkyt/cjaa1zq3w21oe2so5a6l5zqd3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2lua3l0IiwiYSI6ImNqMjhhZWI4cjAwbzAycW1tYWxsa3VibzEifQ.Zze2mKeLBpZql6xFILyq0g')],
-
 
 
             'daminfo': [L.geoJson.ajax('assets/fourdam.geojson', {
@@ -872,7 +875,7 @@ photoLayer3.add(photos3);
             overview: {lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
             Info:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
             Model:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
-            Lancang: {lat: 24.600, lng:99.495, zoom: 7, name: 'Lancang River', layers:['boundary','yun','lancang','fengqing','daminfo','PhotoLayers1']},
+            Lancang: {lat: 24.600, lng:99.495, zoom: 7, name: 'Lancang River', layers:['boundary','river','yun','lancang','fengqing','daminfo','PhotoLayers1']},
             Manwan: {lat: 24.700, lng:99.0, zoom:8 , name: 'Manwan', layers:['boundary','yun','manpop']},
 		    Dachaoshan: {lat: 24.700, lng:99.0, zoom: 8, name: 'Dachaoshan', layers:['boundary','yun','dapop']},
             Xiaowan: {lat: 24.700, lng:99.0, zoom: 8, name: 'Xiaowan', layers:['boundary','fengqing','xiaopop']},
