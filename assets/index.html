@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Four Displacement Projects on the Lancang River</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Dam-induced displacement" />
+    <meta property="og:url" content="http://rawgit.com/cartobaldrica/water_atlas/master/water_use_index.html" />
+    <meta property="og:description" content="About dam-induced displacement in Southwest China ." />
+
+
+    <!--stlyesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin=""/>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" rel='stylesheet' />
+    <link rel="stylesheet" href="https://turban.github.io/Leaflet.Photo/examples/lib/cluster/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://turban.github.io/Leaflet.Photo/Leaflet.Photo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/project_style.css">
+    <link rel="stylesheet" href="css/control-minimap.css" />
+    <link rel="stylesheet" href="css/ekko-lightbox.css"/>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata" />
+
+
+
+    <!--add favicon-->
+	<link rel="shortcut icon" href="img/water.png" type="image/x-icon">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+    <!-- Script -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+            integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+            crossorigin=""></script>
+
+    <!-- Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/leaflet.ajax.min.js"></script>
+    <script src="js/storymap.js"></script>
+	<script src="js/ekko-lightbox.js"></script>
+	<script src="js/control-minimap.js" type="text/javascript"></script>
+    <script src="js/data.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
+    <script src="https://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script src="https://d3js.org/d3-hexbin.v0.2.min.js"></script>
+
+    <script src="js/colorbrewer.js"></script>
+    <!-- mini globle map -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="js/globeminimap.js"></script>
+    <script src="js/storymap.js"></script>
+
+    <script src="js/jqcloud.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/post-contents.js"></script>
+    <script src="js/leaflet.markercluster-src.js"></script>
+    <script src="js/Leaflet.Photo.js"></script>
+    <script src="https://turban.github.io/Leaflet.Photo/Leaflet.Photo.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-bottom navbar-toggleable-md" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header" style="left:10px">
+            <a class="navbar-brand" href="https://winkyt.github.io">Yingqi</a>
+            <a class="navbar-brand" href="#">Home</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" style="padding-left: 1%">
+            <ul class="nav navbar-nav navbar-right">
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Info]').offset().top - $(window).scrollTop() - 10);">Introduction</a>
+                </li>
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Model]').offset().top - $(window).scrollTop() - 10);">R&R Model</a>
+                </li>
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Displacement]').offset().top - $(window).scrollTop() - 10);">Displacement</a>
+                </li>
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Lancang]').offset().top - $(window).scrollTop() - 10);">Lancang River</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dam Sites <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Manwan]').offset().top - $(window).scrollTop() - 10);" style="color: black">Manwan Dam</a>
+                </li>
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Dachaoshan]').offset().top - $(window).scrollTop() - 10);" style="color: black">Dachaoshan Dam</a>
+                </li>
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Xiaowan]').offset().top - $(window).scrollTop() - 10);" style="color: black;">Xiaowan Dam</a>
+                </li>
+                <li style="font-size: 14px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Nuozhadu]').offset().top - $(window).scrollTop() - 10);" style="color:black;">Nuozhadu Dam</a>
+                </li>
+                </ul>
+                </li>
+
+                <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Data]').offset().top - $(window).scrollTop() - 10);">Data and Result</a>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Discussion <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Time]').offset().top - $(window).scrollTop() - 10);" style="color: black">Time of adaptation </a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Compensation]').offset().top - $(window).scrollTop() - 10);" style="color: black">Compensation</a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Labor]').offset().top - $(window).scrollTop() - 10);" style="color: black;">Income, labor and resources</a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Age]').offset().top - $(window).scrollTop() - 10);" style="color:black;">Demographics</a>
+                        </li>
+                        <li style="font-size: 14px">
+                            <a href="javascript:window.scrollBy(0, $('section[data-scene=Limitations]').offset().top - $(window).scrollTop() - 10);" style="color:black;">Limitations</a>
+                        </li>
+                    </ul>
+                </li>
+                <li style="font-size: 14px">
+            		<a  href="about.html">About</a>
+                </li>
+
+                <li style="font-size: 14px">
+                 <div class="dropdown">
+  					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    					Share
+  					</button>
+  					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    					<a class="dropdown-item" target="_blank" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" style="color: #0f0d00">Facebook</a><br/>
+   						<a class="dropdown-item" target="_blank" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" style="color: #0f0d00">Twitter</a><br/>
+    					<a class="dropdown-item" target="_blank" href="https://github.com/winkyt" style="color: #0f0d00">Github</a>
+  					</div>
+				</div>
+				</li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+     <!-- /.container -->
+</div>
+
+<div class="container-fluid">
+    <div class="row" style="margin-left: -5px">
+        <div class="col-sm-6 col-md-4 main">
+        
+            <section data-scene="overview">
+				 	<div class= "overview-background-img background-fullscreen-setting">
+                        <div class="fullpage-text">
+                        <h4 class="text-center" style="color:white;font-size:3.2vw;padding-left: 2%; padding-right:3%; margin-top: 7%">Social Reconstruction in Dam-induced Resettlement</h4>
+						<br>
+						<h4 class ="text-center" style="font-size:1.7vw; margin-top:0; color: white; text-shadow: gray 0.0em 0.0em 0.0em; margin-left: 25%; margin-right:25%; text-align:justify;">
+                            Between Tibet and Yunnan’s deep gorges, the large elevation gradient provides prime conditions for hydropower projects.
+                            A couple of hydropower projects are built on the upper Mekong River, also called the Lancang River.
+                            This site tells you about four dam-induced resettlement projects on the Lancang River, including Manwan, Dachaoshan, Nuozhadu, and Xiaowan,
+                            and their social reconstruction in the communities of the resettled villages.
+						</h4>
+                	<br><br><br>
+                	<p class ="text-center" style="font-size:1.3vw; margin-top:0px; color: white; text-shadow: black 0em 0em 0em; margin-left: 30%; margin-right:30%; display:block;">Created by Yingqi Tang, Geography M.S Candidate, Oregon State University</p>
+                        </div>
+                    </div>
+                	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>                 
+            </section>
+
+            <section data-scene="Info">
+                <div class= "text-background-img background-fullscreen-setting">
+                    <div class="fullpage-text">
+
+                        <h3 class="text-center" style="font-size: 3.2vw; color:white; margin-left:-15px;margin-top: 40px">Introduction</h3><br>
+                    <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:7%;margin-right: 2%; margin-top:10px;margin-bottom: 10px">
+                        Involuntary movement, also known as forced displacement, has affected millions of people worldwide. At the end of 20th century, approximately 80 million people had been displaced due to hydropower projects, including 22.5 million people in China.
+                         </h4>
+                    <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:7%;margin-right: 2%; margin-top:10px;margin-bottom: 10px">
+                        Dam-induced migration not only causes material loss, such as loss of homes and agricultural lands, but this migration also causes social capital loss, disrupting individuals’ long term sustainable social network.
+                        In order to understand the factors that might affect social reconstruction in resettled communities, this research studies community social environments at four dam sites (Manwan, Dachaoshan, Xiaowan, and Nuozhadu) on the Lancang River in China.</h4>
+                        <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:7%;margin-right: 2%; margin-top:10px;margin-bottom: 10px">
+                        Data is drawn from the “Community Environment” of The Lancang River Dam-induced Resettlement Survey (2010).
+                        This survey asked questions about participants’ economic health, social networks, and perceived well-being.
+                            Chi-square tests were used to compare the differences in survey answers between non-resettled and resettled communities at each dam site.</h4>
+                        <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:7%;margin-right: 2%; margin-top:10px;margin-bottom: 10px">
+                        The result indicated that the resettled communities of Manwan, Dachaoshan and Nuozhadu have higher community environment satisfaction than their non-resettled counterparts, while Xiaowan shows the opposite.
+                        Factors, like time for adaption, type of relocation compensation, as well as households’ income, labor, and other resources, and demographics (ethnicity and age), might affect social reconstruction in resettled communities.
+                            Identifying potential relationships among these factors and social capital will help to promote strategies for social reconstruction necessitated by future dam-induced displacement.</h4>
+                    </h4>
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </section>
+
+            <section data-scene="Model">
+                <div class= "text-background-img background-fullscreen-setting">
+                    <div>
+                    <h4 class="text-center" style="font-size: 3.2vw; color:white; margin-left:-15px;margin-top: 40px">Impoverishment Risk and Reconstruction Model</h4>
+
+                        <img src="img/risk_model.png" alt="Michael Cernea's Risk and Reconstruction Model" width="40%" height="32.5%" style="display:block; margin-left: 30%">
+                        <p class="text-center" style="font-size: 1vw; color:white; margin-left:50%;font-weight: bold">Michael Cernea,1997</p>
+
+                    <br>
+                        <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:8%;margin-right: 3%; margin-top:10px;margin-bottom: 10px">
+                            The process of dam-induced migration is complex. It should not be seem as a problem of material loss. These identified risks are interconnect, interrelate, and interactive.
+                        </h4>
+                        <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:8%;margin-right: 3%; margin-top:10px;margin-bottom: 20px">
+                            The risk of <mark>social disarticulation</mark> is the main focus of this study.
+                            Social disarticulation means that change of physical location disassembles existing social relationships, including kinship, friendship, and business circles.
+                            Building social harmony has played a major role in China's long history (Sundararajan, 2015).</h4>
+
+                    </div>
+                    </div>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </section>
+
+
+            <section data-scene="Displacement">
+                <h3 style="text-align: center">Displacement in China</h3>
+                <div class="embeded-photo img-responsive"></div>
+                <br>
+                <p style="font-size: 11px; color: red"><b>Note: Data on map is from Dam Impacts Database, Department of Anthropology, College of Liberal Arts, Oregon State University. Information are from different sources, peer-reviewed and non-peer reviewed. This is a work in progress and it does not includes all dams in China.</b></p>
+                <br><br>
+                <p><b>Definition of large dam:</b></p><br>
+                <p>The International Commission on Large Dams states that a large dam either is at least 15 meters tall from its lowest foundation to its crest,
+                    or it stores more than 3 million cubic meters of water with a height between 5 meters and 15 meters.</p>
+
+                <br><br><br>
+                 <p><b>Displacement and Resettlement:</b></p><br>
+                <p> In the second half of the 20th century, the Chinese government directed programs that relocated people due to economic needs.
+                    This “development-induced migration” was massive. Hundreds of millions of people were involuntarily moved due to urban expansions, hydropower or infrastructure development projects.
+                    The most famous example is the resettlement caused by the Three Gorges Dam construction, which forced over one million people to leave their homes and resettle in new areas (Xi and Hwang, 2011).
+                <br><br>
+                    Hydropower dams fulfill the high demand for electricity in southeastern China.
+                    However, they also present environmental, cultural and social problems.
+                    One of these problems is development-forced displacement and resettlement (DFDR) .
+                    Groups of people affected by dam displacement are generally from low socioeconomic backgrounds (Aiken and Leigh, 2015; Wilmsen and Webber, 2015).
+                    Before water fills a dam, villagers are involuntarily moved to a new area due to the future inundation of villages within a reservoir.
+                    This is considered a tradeoff of for the potential of hydroelectric dam projects.
+                    The United Nations High Commissioner for Refugees (2012) indicated that even though the World Bank and multilateral banks gave guidelines for the resettlement process and aimed to ensure displaced population could start over with sufficient resources, a majority of resettlements proved that the displaced population is impoverished.
+                <br><br>
+                    Many resettled communities faced social problems.
+                    Due to the involuntarily nature and the uprooting of villagers’ social relationships, displacement and resettlement disrupts individuals’ familial and commercial networks, possibly for generations (Tilt and Gerkey, 2016).
+                    Involuntary displacement has become a stressor for many resettled individuals (Xi and Hwang, 2011).
+                    However, future dam construction is unavoidable, and resettlement will take place when newly created reservoirs inundate villages.
+                    More considerations on resettlement plan are needed.
+                </p>
+                <br><br>
+
+
+
+
+                <div class="leg"><p style ="font-weight: bold;">Legend</p>
+                    <br>
+
+                    <br/><i style="background: #993404; margin-right: 8px;"></i><p style="color: black">Province Boundary</p><br> <i class="circle" style="background:#ec7014; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+
+
+                </div>
+                <br/><br/><br/>
+            </section>
+
+
+            <section data-scene="Lancang">
+                <h3 style="text-align: center">Lancang River</h3>
+                <div class="embeded-photo img-responsive"></div>
+                <br>
+                <p>The Lancang river is one of the three parallel rivers in Yunnan province, China. It is also known as the Upper Mekong River. The Lancang river starts at Qinghai province, and flows through Xizang province(Tibet) and Yunnan province. Then the Lancang River becomes the border river between Laos and Burma.</p>
+				<br><br>
+                <p>Driven by economic reform in 1980, population growth, and high electricity demand, the Chinese government proposed the “West-East electricity transmission project” (Ioanides and Tilt, 2015; Magee, 2012).
+                    This project is incredibly important to China’s desire to boost economic development in the western part of the country and drive demand for clean energy.
+                    And the construction of dams inevitably displaces millions of people (Chang et al., 2010)</p>
+                <br><br>
+
+                <img src="img/transmission.png" height=100% width=100% style="display: block;">
+                <p style="font-size: 14px">China's West-East Electricity Transfer (Created by David Tyler Gibson and James Conkling)</p>
+
+                <br><br>
+                <p>Meanwhile, the Yunnan government asked nationally regonized hydrologists to discover the potential capacity of hydropower development.
+                    Later, 14 cascade dams were designed and planned on the Lancang River, including Manwan, Dachaoshan, Xiaowan, and Nuozhadu(Wang et al, 2014).
+                    In 2020, the estimated magnitude of hydropower development on Lancang Jiang should reach 76.4% (Yan and Shi 2016). </p>
+                <br><br>
+
+                <p><b>Definition of large dam</b>:</p><br>
+                <p>The International Commission on Large Dams states that a large dam either is at least 15 meters tall from its lowest foundation to its crest,
+                    or it stores more than 3 million cubic meters of water with a height between 5 meters and 15 meters.</p>
+                <br>
+
+
+
+				<div class="leg"><p style ="font-weight: bold;">Legend</p>
+                    <br>
+
+                    <br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #4eb3d3; margin-right: 8px;"></i><p style="color: black">Lancang River</p><br><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br> <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+
+
+                </div>
+				<br/><br/><br/>
+			</section>
+
+            <section data-scene="Manwan">
+                <h3 style="text-align: center">Manwan Dam</h3>
+                <p>Completed time: 1995(source from international rivers)</p>
+				<br><br>
+                <p>Location: middle reach of the Lancang River</p>
+                <br><br>
+                    <p>Ownership: At the beginning, it was co-owned by the Yunnan provincial government and the Chinese Ministry of Water Resources and Electirc Power. Currently, it is owned by Hydrolancang, a subsidiary of China Huaneng Group. </p>
+                <br><br>
+                    <p>Measurement: height:132 m; crest length: 418m; backwater: 70km; inundation:  6225 mu (411 ha) of farmland and 8508 mu (562 ha) of woodlands</p>
+                <br><br>
+                    <p>Details of resettlement:  114 villages in 8 townships and 4 counties(Jingdong, Yun, Fengqing, and Nanjian)</p>
+
+                <br><br>
+                    <img src="img/manwandam.jpg" width=100% height=100% style="display:block;">
+                <p style="font-size:14px">Manwan Dam(source:International Rivers)</p>
+                <br/><br/>
+				<div class="leg">
+				<p style="font-size: 16px;font-weight: bold">Legend</p>
+				<br/><i style="background: #feb24c; margin-right: 8px;"></i><p>Yun County</p><br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                </div>
+				<br/><br/><br/>
+			</section>
+			
+			<section data-scene="Dachaoshan">
+                <h3 style="text-align: center">Dachaoshan Dam</h3>
+                    <p>Completed time: 2003(source from international rivers)</p>
+                    <br><br>
+                    <p>Location：middle reach of the Lancang River</p>
+                    <br><br>
+                    <p>Ownership:  Yunnan Dachaoshan Hydropower Co. Ltd</p>
+                    <br><br>
+                    <p>Measurement: height:111 m; crest length: 460.39m; catchment area at dam site: 121000 km2; inundation: paddy field was 1562 mu, dry field was 4762 mu (Chinese National Committee on Large dams, and Tilt) </p>
+
+                <br>
+
+                <br><br>
+				<img src="img/dachaoshan.jpg" height=100% width=100% style="display: block;">
+                <p style="font-size: 14px">Dachaoshan dam(source: RCC dams)</p>
+                <br><br>
+                <div class="leg">
+                <p style="font-size: 16px;font-weight: bold">Legend</p>
+                <br>
+                <i style="background: #feb24c; opacity:1; margin-right: 8px;"></i><p>Yun County</p><br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                </div>
+				<br/><br/><br/>
+
+			</section>
+			
+			<section data-scene="Xiaowan">
+                <h3 style="text-align: center">Xiaowan Dam</h3>
+				<br/>
+
+                  <p>Completed time: 2010(Chinese document)</p>
+                    <br><br>
+                    <p>Second tallest dam in the world</p>
+                    <br><br>
+                    <p>Location: middle reach of the Lancang River</p>
+                    <br><br>
+                    <p>Ownership: own by Hydrolancang, a subsidiary of China Huaneng Group</p>
+                    <br><br>
+                    <p>Measurement: height:292m; crest length:902m; Catchment area at dam site: 113300 km2</p>
+
+                <br><br>
+				<img src="img/xiaowanres.jpg" height=100% width=100% style="display: block;">
+                <p style="font-size: 14px">Xiaowan dam(Source:International Rivers)</p>
+                <br><br>
+                <div class="leg">
+                    <p style ="font-size:16px;font-weight: bold;">Legend</p>
+                <br/><i style="background: #f03b20; margin-right: 8px;"></i><p> Fengqing County</p><br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p>
+                    <br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                </div>
+				<br/><br/><br/>
+			</section>
+			
+			<section data-scene="Nuozhadu">
+                <h3 style="text-align: center">Nuozhadu Dam</h3>
+				<br/>
+
+                    <p>Completed time: 2012(source from international rivers) </p>
+                    <br><br>
+                    <p>Location: downstream of the Lancang River</p>
+                    <br><br>
+                    <p>Owenership: own by Hydrolancang, a subsidiary of China Huaneng Group</p>
+                    <br><br>
+                    <p>Measurement:height: 261.5m;crest length:608.16m; catchment area: 144710 km2</p>
+
+				<br><br>
+				<img src="img/nuozhadu.jpg" width=100% height=100% style="display:block;">
+                <p style="font-size:14px">Nuozhadu dam(source:Eco-bussiness.com)</p>
+				<br><br>
+				<div class="leg">
+                <p style="font-size:16px;font-weight: bold">Legend</p>
+
+                    <br>
+				<i style="background: #31a354; opacity:1; margin-right: 8px;"></i><p>Lancang County</p><br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p>
+                    <br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                    <br>
+				</div>
+				<br/><br/><br/>
+			</section>
+
+            <section data-scene="Data">
+                <h3 class="text-left" style="font-size: 28px" >The Lancang River Dam-induced Resettlement Survey(2010) </h3>
+                <br>
+                <p> <p>
+                The survey used in this study had a cross-sectional structure: local, non-resettled communities are the control variable, chosen specifically because the non-resettled communities shared features, economic, demographic, etc., with the other resettled villages included in the survey.
+                This study used this control to compare resettled communities at four dam sites.
+                </p>
+                <br><br>
+                <p>This survey data was obtained from Dr. Byran Tilt and researchers at Yunnan Normal University in Kunming City, China (2010).
+                    The data covers households from more than 30 villages in Fengqing, Yun and Lancang counties.
+                    The data was collected following a one-week training workshop, and the research team ensured the accuracy of the data by running quality control checks (Tilt and Gerkey 2016).
+                </p>
+                <br><br>
+                <p><b>Questions:</b></p><br>
+                <p style="text-align: left; font-size: 16px">1.I feel loyal to other villagers.<br> 我对这个村子的人感到忠诚</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">2.I am the same as other villagers.<br>我和住在这个村子的人一样 </p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">3.If I need advices, I will ask other villagers.<br>如果我需要建议，我会去询问这个村子的人</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">4.I believe that my neighbors will help me under urgent circumstance.<br> 我相信紧急情况下我的邻居会帮助我</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">5.I would like to improve my village with other people.<br>我会和其他人一起合作来改善这个村子</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">6.I won’t move out from the village.<br> 我不会搬离这里</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">7.In general, I love to live in the village.<br> 总体来说，我喜欢住在这里</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">8.In general, I am happy.<br> 总体来说，我很快乐</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">9.I often stop on the way and greet with other villagers.<br>我经常在路上停下和这个村子的人闲聊</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">10.My neighbors often come over to my home.<br> 邻居经常来我家拜访</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">11.My neighbors and I often borrow and help each other. <br>我和邻居之间经常互借东西和互相帮忙</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">12.Individuals in this village will pay back the money.<br> 这个村里的人借钱会还的</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">13.In general, I can believe most individuals in this village.<br> 总体来说，我可以相信大多数村里的人</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">14.From the past five years, loyalty has improved in this village.<br> 在过去的5年中，村里人的可信度有所提高</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">15.Compared to other village, this village does not have many problems.<br>和别的村庄比，这个村庄没什么问题 </p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">16.Would you like to support a government project that does not benefit to your family but good for the whole village?<br>现在有一个政府项目，这个项目对您家没有好处，但是对整个村子有好处，您是否还会支持</p>
+                <br><br>
+                <p style="text-align: left; font-size: 16px">17.Individuals in this village can solve their own problem.<br> 村里的人可以自己解决矛盾</p>
+                <br>
+                <br>
+                <p style="font-size: 16px;font-weight: bold">Result:</p><br><p style="font-size: 14px"> Click the buttom and check out the result for this study.</p><br>
+                <a href="Data.html" style="text-align: center"><button class="button"><b>Result</b></button></a>
+                <br>
+                <div class="leg"><p style ="font-weight: bold;">Legend</p>
+                    <br/><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p> <br>
+                    <i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p>
+
+                </div>
+                <br/><br/><br/>
+            </section>
+
+
+            <section data-scene="Time">
+                <h3 style="text-align: center">Time of Adaptation</h3>
+                <br>
+                <p>Displaced people use different coping strategies to adapt their environments.
+                    Xi and Hwang (2011) have conducted a coping strategy analysis based on communities displace from around the Three Gorges Dam.
+                    They stated that problem-focused coping and emotion-focused coping are two popular strategies.</p>
+                <br><br>
+                 <p>Problem-focused coping aims to let people earned back a sense of control by solving conflicts through negotiation, while emotion-focused coping aims to let people view their failure and turn it into an opportunity to improve the situation.
+                     Based on Questions 15 and 17, it is clear that all surveyed villages have problems. Villagers from the Manwan, Dachaoshan and Nuozhadu resettled communities have more faith in their ability to solve problems by themselves.</p>
+                <br><br>
+                <p>  Tilt (2015) also reported that after facing income reductions due to failure of agriculture production, people switched their income sources from agriculture to small business, industrial sectors, or movement to urban areas.</p>
+                <br><br>
+                  <p>  Due to the limited sources available to discuss the adaptive resilience of resettled villages, more research into this issue should be done in the future.
+                </p>
+                <br><br>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                <i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br><i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+
+                </div>
+
+                <br><br><br><br><br>
+            </section>
+
+            <section data-scene="Compensation">
+                <h3 style="text-align: center">Compensation</h3>
+                <br>
+                <div class="embeded-photo img-responsive"></div>
+                <br>
+                <p>Compensation is a key financial tool for resettlements.
+                    The purpose of compensation is to improve wealth for resettled people and decrease inequality caused by displacement.
+                    Compensation aims to cover the material losses after relocation (Zhang et al., 2015).
+                </p>
+                <br><br>
+                <p>In China, the central government provides laws and policies as a standard for compensation designers but the methods of measuring compensation vary between projects.
+                    After years of reform, the land management law and compensation policy added more details to the compensation design. Resettled villagers from the four dams considered in this study received different levels of compensation.
+                    The difference in compensation affects resettled villagers' financial resource for adaptation in the new community environment.
+                    Without sufficient and stable financial supports, resettled villagers are more likely to suffer in a certain level of depression(Wilmsen et al, 2011). </p>
+                <br><br>
+
+                <a href="Population.html"><button class="button">Resettled Population</button></a>
+<br><br>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                    <br><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br><i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+                </div>
+                <br><br><br><br><br>
+            </section>
+
+            <section data-scene="Labor">
+                <h3 style="text-align: center">Labor, Income and Resources</h3>
+                <br>
+                <div class="embeded-photo img-responsive"></div>
+                <br>
+                <p>As Cernea (1997) mentioned in the risk and reconstruction model, impoverishment often becomes a problem for resettled villagers, even though they receive compensation.
+                    Almost 75% of the population in Yunnan are farmers, so arable agricultural land is a key resource to keep income stable.</p>
+                <br><br>
+                <p>Historically, people settled this area because it was easy to irrigate, had fertile soil, and a suitable climate for agriculture.
+                    However, when hydropower development rushed into the Lancang River Basin, these agricultural areas also became good locations for hydropower projects.
+                    As a result, it is difficult to find new, equally good agricultural areas for relocation (Chen, 2008).
+                    Manwan, Dachaoshan and Xiaowan reported a certain level of impoverishment in the resettled communities. Nuozhadu was under construction, so no report is associated with the issue. </p>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                    <br><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br><i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+</div>
+                <br><br><br><br><br>
+            </section>
+
+            <section data-scene="Age">
+                <h3 style="text-align: center">Demographics</h3>
+                <br>
+                <p>Displacement plans normally ignore cultural elements. Cultural diversity increased the negative impact to resettled communities (Chen, 2008). </p>
+                <br>
+                <p>The major ethnic groups in this study include Han, Yi, and Lahu populations, as well as small populations of Bulang, Dai, Hui, Jingpo, Hani, Wa and Yao people.
+                    Different ethnic identities lead to different choices in terms of styles of houses, agricultural products, clothes, customs, and social values.
+                    Most people have established their "guanxi" by looking for people with familiar culture. </p>
+                <br><br>
+                <p>Meanwhile, older people spent most of their lives practicing traditional agricultural production. It is more difficult for them to adjust than the young people. </p>
+                <br><br>
+                <p>   Rural agriculture is an important source of income for all villagers. The change of demographics closely connect to and affect working age labor (18 to 60). (Anriquez and Stloukal, 2008)</p>
+                <br><br>
+                <p style="font-weight: bold">Ethnicity and Age Graphics</p>
+                <div class="btn-group">
+                    <a href="manwan.html"> <button class="button">Manwan</button></a>
+                    <a href="dachaoshan.html"><button class="button">Dachaoshan</button></a>
+                    <a href="xiaowan.html"><button class="button">Xiaowan</button> </a>
+                    <a href="nuozhadu.html"><button class="button">Nuozhadu</button></a>
+                </div>
+                <br><br>
+                <div class="leg">
+                    <p style="font-size: 16px;font-weight: bold">Legend</p><br>
+                    <br><i style="background: #006080; margin-right: 8px;"></i><p style="color: black">Boundary</p><br/><i style="background: #31a354; margin-right: 8px;"></i><p style="color: black">Lancang County</p><br/><i style="background: #f03b20; margin-right: 8px;"></i><p style="color: black">Fengqing County</p><br/><i style="background: #feb24c; margin-right: 8px;"></i><p style="color: black">Yun County</p><br><i class="circle" style="background:#756bb1; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+                </div>
+                <br><br><br><br><br>
+            </section>
+
+
+
+            <section data-scene="Limitations">
+                <div class= "text-background-img background-fullscreen-setting">
+                    <div class="fullpage-text">
+
+                        <h4 class="text-center" style="font-size: 3.2vw; color:white; margin-left:-15px;margin-top: 30px">Limitations of This Project</h4>
+                        <h4 class="text-left" style="font-size:1.3vw; color:white; margin-left:7%;margin-right: 3%; margin-top:1%;margin-bottom: 2%">
+                            There are some limitations that need to be considered in this study.<br><br>
+                            1. Due to the cross-sectional design of the 2010 Lancang River Dam-induced Resettlement Survey, causal inferences should be avoided.
+                            <br><br>
+                            2. When the survey was conducted, some resettled communities finished longer ago, like Manwan and Dachaoshan, were more likely to experience population change.
+                            Some people might not stay in the resettled communities, choosing to resettle to urban areas or other villages, so they were excluded from this survey.
+                            However, the reasons why people chose to leave resettled communities remains unknown, thus, it can be said that they may have left because of unsatisfied compensation, increased demand in urban labor, better income opportunity in other areas, a poor new community environment or because they couldn't gain control of their social life.
+                            <br><br>
+                            3. It is difficult to use quantitative methods to measure subjective feelings about a community environment.
+                            Due to cultural and age differences, people value their social relationships and subjective well-beings in different ways.
+                            For example, people feel happy in different ways.
+                            A farmer might feel happy because he earned money from his agricultural production and was able to feed his family.
+                            A fisherman might feel happy when he caught a sufficient amount of fish. A mushroom gatherer might feel happy if the rainy season brought a good amount of precipitation to feed the next year's mushroom growth.
+                            Thus, this section in the survey cannot provide details about people's choices of answers.
+                            <br><br>
+                            For the discussion part, although there is sufficient information about compensation of at the four dam sites, some uncertainties remain.
+                            It is still unknown why people received different compensation packages from the same dam projects.
+                            For example, the government built new brick houses for the Xiaowan displaced villages, but not all villagers received the same type of house.
+                            Also, the survey could not ask how people spent their compensation subsidy. Thus, it is hard to determine whether or not resettled villagers spent their subsidy to help adapt to their new life.
+                            Another limitation of comparing compensation is that not all compensation packages were delivered at the same time and it is unknown why.
+                            This time difference might cause some difficulty for resettled villagers to adjust to new community environments.
+                            Meanwhile, for the demographic information, a few people did not provide full information about their ethnicity or other family members' ethnicity but this should not make a significant difference.
+                            Due to the one child policy in China, some home owners might not willing to put all family members in the survey but there is no evidence to support this assumption.
+                        </h4>
+
+
+                    </div>
+                </div>
+                <br/><br/><br/>
+            </section>
+
+
+
+        	 <section data-scene="end">
+				 	<div class= "end-background-img background-fullscreen-setting">
+                        <div class="fullpage-text">
+                            <h4 class ="text-center" style="font-size:20px; margin-top:10%; color: white; text-shadow: gray 0.0em 0.0em 0.0em; margin-left: 25%; margin-right:25%; text-align:justify;">
+                                All in all, the issue of dam-induced displacement is complicated.
+                                Researchers and the national council have made efforts to improve the experience of displaced villages but negative impacts to resettled villagers still occur.
+                                This study shows that future research is needed to learn more about how adaptive resilience of resettled villages affects community reconstruction, how financial and human resources play a role in it, and what can be done to help resettled people from different ethnic groups to adapt their new lives and cope with people with different culture.
+                                </h4>
+
+                        </div>
+                        <!--<h4 class="text-center" style="color:white;font-size:25px">Individuals and their family and friends have lived in the former villages for a long time and established their comfortable social network. These dams uproot the communities and dissolve individuals' comfort zone. </h4><br/><br/>
+                        <h4 class="text-center" style="color:white;font-size:25px">"The social networks provide a basis for communal identities, but they also serve more pragmatic and instrumental purposes, helping to distribute resources, disseminate information, and provide economic support in good times and bad" -- Dr. Byran Tilt</h4>
+                        -->
+                    </div>
+             </section>
+        	
+
+        	<i class="animated zoomIn infinite glyphicon glyphicon-arrow-down arrow-down"></i>
+
+        </div>
+        <div id="map" class="col-sm-6 col-md-8 sidebar"></div>
+    </div>
+    
+    <i class="fa fa-info-circle social" style="right:70px;" data-toggle="modal" data-target="#info-modal"></i>
+    
+	<a class="fa fa-facebook-square social2" style="right:55px;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+        
+    <a class="fa fa-twitter-square social3" style="right:40px;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+	
+	<a class="fa fa-github-square social3" style="right:25px;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
+
+    
+    <div class="modal fade" id="info-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">About</h2>
+                </div>
+                <div class="modal-body">
+                    <p2>Basemap from Mapbox</p2><br>
+                    <p2>Cover and End photo by Luc Forsyth</p2><br>
+                    <p2>Other background photo: Bryan Tilt</p2><br>
+                    <p2 style="font-size:20px">Geographic Data</p2><br>
+                    <p2>Resettlement data based on The Lancang River Dam-induced Resettlement Survey(2010) and Dam-impacted Database by Dr. Bryan Tilt</p2><br/>
+                    <p2>Province Boundary: http://www.diva-gis.org/</p2>
+                    <br>
+                	<p2 style="font-size:20px">Text Data</p2><br>
+                	<p2>Wang, Pu., et al. Large Dam Dilemma : An Exploration of the Impacts of Hydro Projects on People and the Environment in China. 1st ed., Springer, 2014.</p2>
+                </div>
+                <div class="modal-footer">
+                    <p>Created with Leaflet and storymap.js</p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="share-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <a class="fa fa-facebook-square social2" style="font-size: 8em; display:inline;" href="https://facebook.com/sharer.php?u=http://rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+    				<a class="fa fa-twitter-square social3" style="font-size: 8em; display:inline;" href="https://twitter.com/home?status=Oregon's%20Groundwater%0Ahttp%3A//rawgit.com/cartobaldrica/water_atlas/master/infrastructure_index.html" target="_blank"></a>
+					<a class="fa fa-github-square social3" style="font-size: 8em; display:inline;" href="https://github.com/cartobaldrica/water_atlas" target="_blank"></a>
+					<br/>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<script type="text/javascript">
+
+
+//	
+//<p style="text-align:left; font-weight:bold">Hover for source</p>'
+
+function showPhoto (evt) {
+
+    var photo = evt.layer.photo;
+    $("section.viewing div.embeded-photo").empty().append("<img src='" + photo.url +"' /> <br/> <p class='text-center'> " +  photo.caption +" <p>");
+
+}
+
+var photoLayer1 = L.photo.cluster().on('mouseover', showPhoto);
+photoLayer1.add(photos1);
+
+var photoLayer2 = L.photo.cluster().on('mouseover', showPhoto);
+photoLayer2.add(photos2);
+
+var photoLayer3 = L.photo.cluster().on('mouseover', showPhoto);
+photoLayer3.add(photos3);
+
+
+     layers = {
+             'boundary': [ L.geoJson.ajax('assets/yunnanb.geojson',  {
+            color: '#006080',
+            weight: 5,
+            fillOpacity: 0.3,
+            opacity: 0.3
+               })
+                ],
+
+         'boundaryc': [ L.geoJson.ajax('assets/china.geojson',  {
+             color: '#800026',
+             weight: 1,
+             fillOpacity: 0.1,
+             opacity: 0.3
+         })
+         ],
+
+         'river':[ L.geoJson.ajax('assets/lancang10.geojson',  {
+             color: '#4eb3d3',
+             weight: 8,
+             opacity: 0.5
+         })],
+
+         'dams': [L.geoJson.ajax('assets/alldams.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#ec7014',
+                         radius: 4,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip("<p style='font-size: 12px'>Dam Name:</p>"+ feature.properties.Dam_NAME + "<br>"+ "<p style='font-size: 12px'>River:</p>" + feature.properties.RIV_NAME + "<br>" + "<p style='font-size: 12px'> Displaced Population:</p>"+feature.properties.POP_EST_1 + "<br>" +"<p style='font-size: 12px'>Unit:</p>" +feature.properties.MEASUREMENT_UNIT_OF_POP_EST_1, {className: 'label_tooltip'});
+             }
+         })],
+
+
+              'yun': [ L.geoJson.ajax('assets/Yun.geojson',  {
+            color: '#feb24c',
+            weight: 2,
+            opacity: 0.7
+               })
+               ],
+
+             'fengqing': [ L.geoJson.ajax('assets/fengqing.geojson',  {
+            color: '#f03b20',
+            weight: 2,
+            opacity: 0.7
+                })
+                ],
+
+              'lancang': [ L.geoJson.ajax('assets/lancang.geojson',  {
+                 color: '#31a354',
+                 weight: 2,
+                 opacity: 0.7
+                 })],
+
+
+            'daminfo': [L.geoJson.ajax('assets/fourdam.geojson', {
+            	pointToLayer: function (feature, latlng) {
+    			return L.circleMarker(latlng, {
+    				color: '#ffffff',
+    				fillColor: '#756bb1',
+    				radius: 4,
+    				opacity: 1,
+    				weight: 1,
+    				fillOpacity: 1
+    				}
+    					).bindTooltip(feature.properties.Dam_NAME, {className: 'label_tooltip'});
+    				}
+				})],
+
+        'surgroup': [L.geoJson.ajax('assets/survey.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Non-resettled Households:</p>"
+                    + feature.properties.NONRESETTLED + "<br>"+ "<p style='font-size: 12px'>Resettled Households:</p>"
+                    + feature.properties.RESETTLED, {className:'label_tooltip'});
+            }
+        })],
+
+        'manpop': [L.geoJson.ajax('assets/manwanpop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'dapop': [L.geoJson.ajax('assets/dapop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'xiaopop': [L.geoJson.ajax('assets/xiaopop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'nuopop': [L.geoJson.ajax('assets/nuopop.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip("<p style='font-size: 12px'>Dam:</p>"+ feature.properties.DAM
+                    + "<br />"+ "<p style='font-size: 12px'>Estimated Displaced Population:</p>"
+                    + feature.properties.ESTIMATED_DIS_POP + "<br>"+ "<p style='font-size: 12px'>Actual Displaced Population:</p>"
+                    + feature.properties.DISPLACED_POP, {className:'label_tooltip'});
+            }
+        })],
+
+        'adaptation': [L.geoJson.ajax('assets/adaptation.geojson', {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                        color: '#ffffff',
+                        fillColor: '#756bb1',
+                        radius: 5,
+                        opacity: 1,
+                        weight: 1,
+                        fillOpacity: 1
+                    }
+                ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.Adaptation + '</div>', {className: 'label_tooltip'});
+            }
+        })],
+
+         'compensation': [L.geoJson.ajax('assets/summary.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#756bb1',
+                         radius: 5,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.compensation + '</div>', {className: 'label_tooltip'});
+             }
+         })],
+
+         'labor': [L.geoJson.ajax('assets/summary.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#756bb1',
+                         radius: 5,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.labor + '</div>', {className: 'label_tooltip'});
+             }
+         })],
+
+         'age': [L.geoJson.ajax('assets/summary.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#756bb1',
+                         radius: 5,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip('<div class="tooltipdiv">' + feature.properties.DAM + '<br>' + feature.properties.demographic + '</div>', {className: 'label_tooltip'});
+             }
+         })],
+
+         'PhotoLayers1': [photoLayer1],
+
+         'PhotoLayers2': [photoLayer2],
+
+         'PhotoLayers3': [photoLayer3],
+
+
+    };
+
+    var scenes = {
+            overview: {lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Info:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Model:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Displacement: {lat: 32.600, lng:99.495, zoom: 3, name: 'Displacement', layers:['boundaryc','dams']},
+            Lancang: {lat: 24.600, lng:99.495, zoom: 7, name: 'Lancang River', layers:['boundary','river','yun','lancang','fengqing','daminfo','PhotoLayers1']},
+            Manwan: {lat: 24.700, lng:99.0, zoom:8 , name: 'Manwan', layers:['boundary','yun','manpop']},
+		    Dachaoshan: {lat: 24.700, lng:99.0, zoom: 8, name: 'Dachaoshan', layers:['boundary','yun','dapop']},
+            Xiaowan: {lat: 24.700, lng:99.0, zoom: 8, name: 'Xiaowan', layers:['boundary','fengqing','xiaopop']},
+            Nuozhadu: {lat: 22.700, lng:99.0, zoom: 8, name: 'Nuozhadu', layers:['boundary','lancang','nuopop']},
+            Data:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','surgroup']},
+            Time:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','adaptation']},
+            Compensation:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','compensation','PhotoLayers2']},
+            Labor:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','labor','PhotoLayers3']},
+            Age:{lat:23.700, lng:98.5, zoom: 8, name:'Data', layers:['boundary','yun','lancang','fengqing','age']},
+            Limitations:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            end: {lat: 25.300, lng:95.5, zoom: 7, name: 'End',position: 'fullpage'}
+    };
+
+
+
+$('.main').storymap({
+    scenes: scenes,
+    layers:layers,
+    legend: false,
+    scale:false,
+    navwidget: true,
+    createMap: function () {
+        // create a map in the "map" div, set the view to a given place and zoom
+        //test: returen lat lng
+        /*map.on('click', function(e) {
+         alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+         });*/
+
+        map = L.map('map', {center: [25.300, 102.153], zoom: 7});
+        L.tileLayer('https://api.mapbox.com/styles/v1/winkyt/cjaa1zq3w21oe2so5a6l5zqd3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoid2lua3l0IiwiYSI6ImNqMjhhZWI4cjAwbzAycW1tYWxsa3VibzEifQ.Zze2mKeLBpZql6xFILyq0g\n', {
+            minZoom:5,
+            maxZoom: 10,
+            attribution: '<a target="https://www.mapbox.com/maps/">Mapbox</a>',
+            id: 'mapbox.streets',
+            detectRetina: true
+        }).addTo(map);
+
+        miniMap = new L.Control.GlobeMiniMap({
+            marker:'#B51E1E',
+            position: 'bottomright'
+        }).addTo(map);
+
+        document.getElementsByClassName("leaflet-control-attribution")[0].style.visibility = "hidden";
+        return map;
+
+    }
+});
+
+
+</script>
+</body>
+</html>
