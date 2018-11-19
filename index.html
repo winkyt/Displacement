@@ -91,6 +91,9 @@
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=Model]').offset().top - $(window).scrollTop() - 10);">R&R Model</a>
                 </li>
                 <li style="font-size: 16px">
+                    <a href="javascript:window.scrollBy(0, $('section[data-scene=Displacement]').offset().top - $(window).scrollTop() - 10);">Displacement</a>
+                </li>
+                <li style="font-size: 16px">
                     <a href="javascript:window.scrollBy(0, $('section[data-scene=Lancang]').offset().top - $(window).scrollTop() - 10);">Lancang River</a>
                 </li>
                 <li class="dropdown">
@@ -139,7 +142,7 @@
                     </ul>
                 </li>
                 <li style="font-size: 14px">
-            		<a  data-toggle="modal" data-target="#info-modal">About</a>
+            		<a  href="about.html">About</a>
                 </li>
 
                 <li style="font-size: 14px">
@@ -187,7 +190,7 @@
                 <div class= "text-background-img background-fullscreen-setting">
                     <div class="fullpage-text">
 
-                        <h3 class="text-center" style="font-size: 3.2vw; color:white; margin-left:-15px;margin-top: 40px">Introduction</h3>
+                        <h3 class="text-center" style="font-size: 3.2vw; color:white; margin-left:-15px;margin-top: 40px">Introduction</h3><br>
                     <h4 class="text-left" style="font-size:1.5vw; color:white; margin-left:7%;margin-right: 2%; margin-top:10px;margin-bottom: 10px">
                         Involuntary movement, also known as forced displacement, has affected millions of people worldwide. At the end of 20th century, approximately 80 million people had been displaced due to hydropower projects, including 22.5 million people in China.
                          </h4>
@@ -229,6 +232,53 @@
                     </div>
                 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
             </section>
+
+
+            <section data-scene="Displacement">
+                <h3 style="text-align: center">Displacement in China</h3>
+                <div class="embeded-photo img-responsive"></div>
+                <br>
+                <p style="font-size: 11px; color: red"><b>Note: Data on map is from Dam Impacts Database, Department of Anthropology, College of Liberal Arts, Oregon State University. Information are from different sources, peer-reviewed and non-peer reviewed. This is a work in progress and it does not includes all dams in China.</b></p>
+                <br><br>
+                <p><b>Definition of large dam:</b></p><br>
+                <p>The International Commission on Large Dams states that a large dam either is at least 15 meters tall from its lowest foundation to its crest,
+                    or it stores more than 3 million cubic meters of water with a height between 5 meters and 15 meters.</p>
+
+                <br><br><br>
+                 <p><b>Displacement and Resettlement:</b></p><br>
+                <p> In the second half of the 20th century, the Chinese government directed programs that relocated people due to economic needs.
+                    This “development-induced migration” was massive. Hundreds of millions of people were involuntarily moved due to urban expansions, hydropower or infrastructure development projects.
+                    The most famous example is the resettlement caused by the Three Gorges Dam construction, which forced over one million people to leave their homes and resettle in new areas (Xi and Hwang, 2011).
+                <br><br>
+                    Hydropower dams fulfill the high demand for electricity in southeastern China.
+                    However, they also present environmental, cultural and social problems.
+                    One of these problems is development-forced displacement and resettlement (DFDR) .
+                    Groups of people affected by dam displacement are generally from low socioeconomic backgrounds (Aiken and Leigh, 2015; Wilmsen and Webber, 2015).
+                    Before water fills a dam, villagers are involuntarily moved to a new area due to the future inundation of villages within a reservoir.
+                    This is considered a tradeoff of for the potential of hydroelectric dam projects.
+                    The United Nations High Commissioner for Refugees (2012) indicated that even though the World Bank and multilateral banks gave guidelines for the resettlement process and aimed to ensure displaced population could start over with sufficient resources, a majority of resettlements proved that the displaced population is impoverished.
+                <br><br>
+                    Many resettled communities faced social problems.
+                    Due to the involuntarily nature and the uprooting of villagers’ social relationships, displacement and resettlement disrupts individuals’ familial and commercial networks, possibly for generations (Tilt and Gerkey, 2016).
+                    Involuntary displacement has become a stressor for many resettled individuals (Xi and Hwang, 2011).
+                    However, future dam construction is unavoidable, and resettlement will take place when newly created reservoirs inundate villages.
+                    More considerations on resettlement plan are needed.
+                </p>
+                <br><br>
+
+
+
+
+                <div class="leg"><p style ="font-weight: bold;">Legend</p>
+                    <br>
+
+                    <br/><i style="background: #993404; margin-right: 8px;"></i><p style="color: black">Province Boundary</p><br> <i class="circle" style="background:#ec7014; border-color:#ffffff; width:20px; height:20px; padding:1px;margin-left:15px;margin-top:8px;margin-right:8px"></i><p style="margin-left: 20px">Dam(Hover over and check more info)</p><br>
+
+
+                </div>
+                <br/><br/><br/>
+            </section>
+
 
             <section data-scene="Lancang">
                 <h3 style="text-align: center">Lancang River</h3>
@@ -680,11 +730,34 @@ photoLayer3.add(photos3);
                })
                 ],
 
+         'boundaryc': [ L.geoJson.ajax('assets/china.geojson',  {
+             color: '#800026',
+             weight: 1,
+             fillOpacity: 0.1,
+             opacity: 0.3
+         })
+         ],
+
          'river':[ L.geoJson.ajax('assets/lancang10.geojson',  {
              color: '#4eb3d3',
              weight: 8,
              opacity: 0.5
          })],
+
+         'dams': [L.geoJson.ajax('assets/alldams.geojson', {
+             pointToLayer: function (feature, latlng) {
+                 return L.circleMarker(latlng, {
+                         color: '#ffffff',
+                         fillColor: '#ec7014',
+                         radius: 4,
+                         opacity: 1,
+                         weight: 1,
+                         fillOpacity: 1
+                     }
+                 ).bindTooltip("<p style='font-size: 12px'>Dam Name:</p>"+ feature.properties.Dam_NAME + "<br>"+ "<p style='font-size: 12px'>River:</p>" + feature.properties.RIV_NAME + "<br>" + "<p style='font-size: 12px'> Displaced Population:</p>"+feature.properties.POP_EST_1 + "<br>" +"<p style='font-size: 12px'>Unit:</p>" +feature.properties.MEASUREMENT_UNIT_OF_POP_EST_1, {className: 'label_tooltip'});
+             }
+         })],
+
 
               'yun': [ L.geoJson.ajax('assets/Yun.geojson',  {
             color: '#feb24c',
@@ -875,6 +948,7 @@ photoLayer3.add(photos3);
             overview: {lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
             Info:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
             Model:{lat: 25.300, lng:95.5, zoom: 7, name: 'Home',position: 'fullpage'},
+            Displacement: {lat: 32.600, lng:99.495, zoom: 3, name: 'Displacement', layers:['boundaryc','dams']},
             Lancang: {lat: 24.600, lng:99.495, zoom: 7, name: 'Lancang River', layers:['boundary','river','yun','lancang','fengqing','daminfo','PhotoLayers1']},
             Manwan: {lat: 24.700, lng:99.0, zoom:8 , name: 'Manwan', layers:['boundary','yun','manpop']},
 		    Dachaoshan: {lat: 24.700, lng:99.0, zoom: 8, name: 'Dachaoshan', layers:['boundary','yun','dapop']},
