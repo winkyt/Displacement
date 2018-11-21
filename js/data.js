@@ -3,7 +3,7 @@ var photos1 = [{
     lng: 99.000,
     thumbnail: "img/cluster/people1.jpg",
     url: "img/cluster/people1.jpg",
-    caption: "Local people; Photo by Bryan Tilt"
+    caption: "Local people overlooking the xiaowan construction site; Photo by Bryan Tilt"
 }, {
     lat: 22.856,
     lng: 103.637,
@@ -16,7 +16,7 @@ var photos1 = [{
         lng: 102.000,
         thumbnail: "img/cluster/people3.jpg",
         url: "img/cluster/people3.jpg",
-        caption: "A farmer; Photo by Bryan Tilt"
+        caption: "The farmer walked to his agricultural site; Photo by Bryan Tilt"
     },
 ];
 
@@ -25,19 +25,19 @@ var photos2 = [{
     lng:  98.75149536132814,
     thumbnail: "img/cluster/house1.jpg",
     url: "img/cluster/house1.jpg",
-    caption: "villager's house"
+    caption: "House in village; Photo by Bryan Tilt"
 }, {
     lat: 24.897,
     lng: 99.68145751953126,
     thumbnail: "img/cluster/house2.jpg",
     url: "img/cluster/house2.jpg",
-    caption: "compensated house"
+    caption: "Compensated house for Xiaowan; Photo by Bryan Tilt"
 }, {
     lat:  24.43714709713302,
     lng: 100.59288024902345,
     thumbnail: "img/cluster/house3.jpg",
     url: "img/cluster/house3.jpg",
-    caption: "villager's house"
+    caption: "House in village; Photo by Bryan Tilt"
 }, ];
 
 var photos3 = [{
@@ -45,13 +45,13 @@ var photos3 = [{
     lng: 99.68145751953126,
     thumbnail: "img/cluster/view1.jpg",
     url: "img/cluster/view1.jpg",
-    caption: "Mountainous landscape"
+    caption: "Mountainous landscape; Photo by Bryan Tilt"
 }, {
     lat: 24.437,
     lng: 100.592,
     thumbnail: "img/cluster/village1.jpg",
     url: "img/cluster/village1.jpg",
-    caption: "Village View"
+    caption: "A village downstream of Manwan site; Photo by Bryan Tilt",
 }]
 
 
