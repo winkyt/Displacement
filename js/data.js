@@ -9,7 +9,7 @@ var photos1 = [{
     lng: 103.637,
     thumbnail: "img/cluster/people2.jpg",
     url: "img/cluster/people2.jpg",
-    caption: "A farmer points to his land; Photo by Bryan Tilt"
+    caption: "A local farmer; Photo by Bryan Tilt"
 },
     {
         lat: 25.425,
